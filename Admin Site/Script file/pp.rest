@@ -1,0 +1,31 @@
+get https://6410847f7b24bb91f21fd94b.mockapi.io/ali
+###
+delete https://6410847f7b24bb91f21fd94b.mockapi.io/ali/3
+
+###
+GET https://63c9170d320a0c4c9540575f.mockapi.io/products
+###
+PUT  https://63c9170d320a0c4c9540575f.mockapi.io/products/112
+Content-Type: application/json
+
+
+{
+  "src": "https://m.media-amazon.com/images/I/71mWPGfCRtL._AC_UL480_FMwebp_QL65_.jpg",
+  "name": "art stret wall",
+  "Comvalue": 60,
+  "price": 90,
+  "color": "2 Colors",
+  "ratings": 0,
+  "category": "homedecore",
+  "customerId": "prem",
+  "totalquantity": 100,
+  "status": "pending",
+  "ispurchased": false,
+  "id": "112",
+  "badge": "New!",
+  "Compvalue": "$54.95",
+   "brand":"..."
+}
+
+### 
+delete https://63c9170d320a0c4c9540575f.mockapi.io/products/61
