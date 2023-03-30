@@ -126,3 +126,17 @@ filter.addEventListener("change", () => {
     }, 200);
   }
 });
+
+// searching
+let search = document.querySelector("#search");
+let searchbtn = document.querySelector(".uil-search");
+searchbtn.addEventListener("click", () => {
+  let searchValue=search.value. toLowerCase();
+  if (search !== "") {
+    let filtered = global_data.filter((ele) => {
+      let names=ele.name.toLowerCase();
+      return names.includes(searchValue);
+    });
+    appending(filtered);
+  }
+});

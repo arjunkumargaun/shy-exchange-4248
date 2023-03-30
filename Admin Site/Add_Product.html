@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Product of BlueBerry</title>
+    <title>Add Product at BlueBerry</title>
     <link rel="shortcut icon" href="https://iili.io/HN45Qd7.png" type="image/x-icon">
-    <link rel="stylesheet" href="./Styling/all_product.css">
+    <link rel="stylesheet" href="./Styling/add_new_product.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
 
@@ -27,9 +27,9 @@
                         <i class="uil uil-estate"></i>
                         <span class="link-name">Admin Page</span>
                     </a></li>
-                <li><a href="./Add_Product.html">
+                <li><a href="./all_Product.html">
                         <i class="uil uil-files-landscapes"></i>
-                        <span class="link-name">Add Product</span>
+                        <span class="link-name">All Product</span>
                     </a></li>
                 <li><a href="./update_product.html">
                         <i class="uil uil-chart"></i>
@@ -62,55 +62,34 @@
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
 
-            <div class="search-box">
-                <i class="uil uil-search"></i>
-                <input type="text" placeholder="Search here..." id="search">
-            </div>
-
             <!--<img src="images/profile.jpg" alt="">-->
         </div>
 
         <div class="dash-content">
             <div class="overview">
                 <div class="title">
-                   <div>
-                   <i class="uil uil-tachometer-fast-alt"></i>
-                    <span class="text">Products Administration</span>
-                   </div>
-                    
-                    <select id="filter">
-                        <option value="">Select Category</option>
-                        <option value="kids">Kids Category</option>
-                        <option value="gifts">All Gifts</option>
-                        <option value="mens">Mens</option>
-                        <option value="women">Women</option>
-                        <option value="bags">Bags</option>
-                        <option value="womens top">Womens top</option>
-                        <option value="womens jeans">Womens jeans</option>
-                        <option value="homedecore">Homedecorate Category</option>
-                    </select>
+                    <i class="uil uil-tachometer-fast-alt"></i>
+                    <span class="text">Add New Product and Category</span>
                 </div>
-
-
             </div>
+            <div id="product-add">
+                <form id="form">
+                    <label for="name">Enter Product Name</label>
+                    <input type="text" placeholder="Enter Product Name" required id="name">
+                    <label for="price">Enter Product Price</label>
+                    <input type="number" placeholder="Enter Product Price" required id="price">
+                    <label for="name">Choose a Category</label>
+                    <input type="text" placeholder="Product Category" id="category" required>
+                    <label for="name">Product Quantity</label>
+                    <input type="number" placeholder="Product Quantity" required id="quantity">
+                    <label for="name">Brand Name</label>
+                    <input type="text" placeholder="Brand Name" id="brand" required>
+                    <label for="name">Product Image</label>
+                    <input type="text" placeholder="Product Image" id="image" required>
+                    <input type="submit" id="submit">
 
-            <div id="product_show">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Image</th>
-                            <th>Product Name</th>
-                            <th>Product Category</th>
-                            <th>Product Quantity</th>
-                            <th>Remove Product</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- data should append here -->
-                    </tbody>
-                </table>
+                </form>
             </div>
-
     </section>
 
     <div id="sure">
@@ -120,10 +99,10 @@
             <button id="no">No</button>
         </div>
     </div>
-
+<div class="alert">Please Add Product Carefully !</div>
 
 
 </body>
-<script src="./Script file/all_product.js"></script>
+<script src="./Script file/add_new_product.js"></script>
 
 </html>

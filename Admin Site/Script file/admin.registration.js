@@ -66,7 +66,7 @@ form.onsubmit = (e) => {
 
 let passcode_div = document.querySelector("#passcode"); //for varify if admin or not
 let new_form = document.querySelector(".wrapper"); //entire registration form
-let name = document.querySelector("#admin-name");
+let names = document.querySelector("#admin-name");
 let email = document.getElementById("admin-email");
 let password = document.getElementById("admin-password");
 let url = "https://6410847f7b24bb91f21fd94b.mockapi.io/ali"; //api for post http method
@@ -104,9 +104,9 @@ taking_code_form.addEventListener("submit", (e) => {
 form.addEventListener("submit", (e) => {
 e.preventDefault();
   // registration via post method
-  if (name.value !== "" && email.value !== "" && password.value !== "") {
+  if (names.value !== "" && email.value !== "" && password.value !== "") {
     let data = {
-      name: name.value,
+      name: names.value,
       email: email.value,
       password: password.value,
     };
@@ -116,17 +116,17 @@ e.preventDefault();
   }
 });
 
-async function registration(data) {
+async function registration(details) {
   try {
     let res = await fetch(url, {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(details),
     });
     let data = await res.json();
-    console.log(data);
+  
   } catch (error) {
     console.log(error);
   }
