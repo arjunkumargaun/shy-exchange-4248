@@ -31,12 +31,14 @@
   }
   .datacontainer{
     width: 75%;
+    margin-right: 10px;
   }
   #product-container{
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap: 50px;
+    
   }
   .cardcontainer{
     width: 100%;
@@ -82,7 +84,9 @@
 }
 
 
-
+.categoryfilter div:nth-child(1).active{
+  background-color: rgb(17, 17, 153);
+}
 
 
 
@@ -168,6 +172,9 @@ border: 1px solid transparent;
         background-color: rgb(17, 17, 153);
       }
 
+      .active{
+        background-color: rgb(17, 17, 153);
+      }
 
 
 
@@ -269,6 +276,7 @@ border: 1px solid transparent;
   color: black;
   background-color: rgb(234, 237, 240);
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  border-radius: 5px;
 }
 .card .img_div img{
   width: 100%;
@@ -286,6 +294,9 @@ border: 1px solid transparent;
   background-color: transparent;
   display: flex;
 }
+.card > .desc > h2,.card > .desc > .stars i{
+  margin: 0px 2px;
+}
 .card > .desc > h2,.card > .desc > .stars li{
   background-color: transparent;
 }
@@ -293,7 +304,7 @@ border: 1px solid transparent;
   background-color: transparent;
 }
 .desc > .stars i{
-  color: #7a532b;
+  /* color: #7a532b; */
   background-color: transparent;
   /* color: white; */
 }
