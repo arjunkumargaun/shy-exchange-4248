@@ -14,7 +14,7 @@ sidebarToggle.addEventListener("click", () => {
 let logout = document.querySelector(".logout-mode");
 logout.addEventListener("click", () => {
   localStorage.removeItem("check");
-  window.open("http://127.0.0.1:5500/admin.login.html", "_self");
+  window.location="/admin.login.html";
 }); // logout button
 
 let product_update_div = document.querySelector("#product-update");
@@ -144,7 +144,7 @@ function data_update(product_name) {
       }, 1000);
     });
     setTimeout(() => {
-      window.open("http://127.0.0.1:5500/all_Product.html", "_self");
+      window.location="./all_Product.html";
     }, 2000);
 
     nope.addEventListener("click", () => {

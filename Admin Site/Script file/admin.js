@@ -17,7 +17,7 @@ let alert = document.querySelector(".alert");
 
 window.addEventListener("load", () => {
   if (admin_check == null) {
-    window.open("http://127.0.0.1:5500/Admin.registration.html", "_self");
+    window.location="./Admin.registration.html";
   }
   if (admin_name !== null) {
     alert.innerText = `Welcome ${admin_name} !`;
@@ -32,7 +32,7 @@ window.addEventListener("load", () => {
 let logout = document.querySelector(".logout-mode");
 logout.addEventListener("click", () => {
   localStorage.removeItem("check");
-  window.open("http://127.0.0.1:5500/admin.login.html", "_self");
+  window.location='./admin.login.html';
 });
 
 function getdata() {
@@ -60,5 +60,5 @@ function excution(arr) {
 let box1 = document.querySelector(".box1");
 
 box1.addEventListener("click", () => {
-  window.open("http://127.0.0.1:5500/all_Product.html", "_self");
+    window.location='./all_Product.html';;
 });
