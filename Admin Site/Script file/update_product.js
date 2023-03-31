@@ -54,6 +54,8 @@ async function AddInApi(Data_To_Update, Product_id) {
     console.log(error.message);
   }
 }
+let product_image_showing = document.querySelector("#product-image-showing");
+let image_append_here = document.querySelector("#image-append-here");
 
 let sure2 = document.querySelector("#sure2");
 let yes2 = document.querySelector("#yes2");
@@ -94,6 +96,7 @@ function name_show(details) {
     name_list.addEventListener("click", () => {
       if (product_category.value !== "") {
         data_update(ele.name); // here i am colling form function
+        ImageShow(ele.src);
       } else {
         alert.innerHTML = "Select Category!";
         alert.style.display = "block";
@@ -108,7 +111,6 @@ function name_show(details) {
 
 // update the product here
 function data_update(product_name) {
-  
   ask_category.style.display = "none";
   product_update_div.style.display = "block";
 
@@ -141,7 +143,7 @@ function data_update(product_name) {
         form.reset();
       }, 1000);
     });
-      setTimeout(() => {
+    setTimeout(() => {
       window.open("http://127.0.0.1:5500/all_Product.html", "_self");
     }, 2000);
 
@@ -154,3 +156,14 @@ function data_update(product_name) {
   });
 }
 
+// image show here
+function ImageShow(imageData) {
+  setTimeout(() => {
+    image_append_here.textContent = "";
+    let image = document.createElement("img");
+    image.setAttribute("src", imageData);
+    image_append_here.append(image);
+
+    product_image_showing.style.display = "block";
+  }, 1000);
+}
