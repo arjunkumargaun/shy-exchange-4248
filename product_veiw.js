@@ -1,15 +1,28 @@
-let localStrage_data = JSON.parse(localStorage.getItem("")); // getting data
+let localStrage_data = JSON.parse(localStorage.getItem("veiwproduct")); // getting data
 let image = document.querySelector("#image");
 let details = document.querySelector("#details");
-
-
+let Data_For_AddToCart = JSON.parse(localStorage.getItem("addtocart"));
+if (Data_For_AddToCart == null) {
+  Data_For_AddToCart = [];
+}
 
 window.addEventListener("load", () => {
-  excute(localStrage_data);
+  fetchRender();
 });
 
+async function fetchRender() {
+  let res = await fetch("https://63c9170d320a0c4c9540575f.mockapi.io/products");
+  let details = await res.json();
+  excute(localStrage_data, details);
+}
+
 // for deisplay data
-function excute(data) {
+function excute(responseNumber, fetchData) {
+  let filtered = fetchData.filter((ele) => {
+    return ele.id == responseNumber;
+  });
+  let data = filtered[0];
+
   image.innerHTML = "";
   details.innerHTML = "";
 
@@ -59,6 +72,15 @@ function excute(data) {
   quantity.textContent = "1";
   addToCardButton.textContent = "Add to cart";
   buy_now.textContent = "Buy Now";
+
+  addToCardButton.addEventListener("click", () => {
+    addToCardButton.textContent = addToCartHere(data);
+  }); // for add to card
+
+  buy_now.addEventListener("click", () => {
+    BuyNow(data);
+  }); // for buy now
+
   addToCart.append(addToCardButton, buy_now);
   div.append(
     badge,
@@ -73,4 +95,16 @@ function excute(data) {
     addToCart
   );
   details.append(div);
+}
+
+function addToCartHere(element) {
+  let product_id = element.id;
+  Data_For_AddToCart.push(product_id);
+  
+  localStorage.setItem("addtocart", JSON.stringify(Data_For_AddToCart));
+
+  return "Added to Cart";
+}
+function BuyNow(element) {
+  console.log(element);
 }

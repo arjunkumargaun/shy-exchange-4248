@@ -105,6 +105,7 @@ for(let key of viewcart){
     viewaarr.push(ide)
     localStorage.setItem("veiwproduct",JSON.stringify(key.id))
     // console.log(dataarr)
+    window.location.assign("product_view.html");
   })
 }
 
