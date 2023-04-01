@@ -21,7 +21,9 @@
 
             <div class="col">
 
-                <h3 class="title">payment</h3>
+                <h3 class="title">payment</h3>                
+                <p>Thankyou mr. <span id="span"></span></p>
+                
 
                 <div class="inputBox">
                     <span>cards accepted :</span>
@@ -29,25 +31,27 @@
                 </div>
                 <div class="inputBox">
                     <span>name on card :</span>
-                    <input type="text" placeholder="mr. john deo">
+                    <input type="text" placeholder="mr. john deo" id="name">
                 </div>
                 <div class="inputBox">
                     <span>credit card number :</span>
-                    <input type="number" placeholder="1111-2222-3333-4444">
+                    <input type="number" placeholder="1111-2222-3333-4444" id="number" minlength="8" maxlength="16">
                 </div>
                 <div class="inputBox">
                     <span>exp month :</span>
-                    <input type="text" placeholder="january">
+                    <input type="text" placeholder="january" id="month">
+
                 </div>
 
                 <div class="flex">
                     <div class="inputBox">
                         <span>exp year :</span>
-                        <input type="number" placeholder="2022">
+                        <input type="number" placeholder="2022" id="year" maxlength="4">
                     </div>
                     <div class="inputBox">
                         <span>CVV :</span>
-                        <input type="text" placeholder="123">
+                        <input type="text" placeholder="123" id="cvv" maxlength="3">
+
                     </div>
                 </div>
 
@@ -62,4 +66,5 @@
 </div>    
     
 </body>
+<script src="cardpayment.js"></script>
 </html>
