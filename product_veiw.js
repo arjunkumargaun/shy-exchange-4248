@@ -79,7 +79,7 @@ function excute(responseNumber, fetchData) {
 
   buy_now.addEventListener("click", () => {
     BuyNow(data);
-  }); // for buy now
+  }); // for buy now page 
 
   addToCart.append(addToCardButton, buy_now);
   div.append(
