@@ -45,43 +45,38 @@ function womendata(data){
     for(let i=0; i<4; i++){
         womenArray.push(filteredData[i]);
     }
-    let finalData=womenArray.map((ele)=>{
-        return `${womencard(ele.src,ele.name)}`;
+    let finalData=womenArray.map((item)=>{
+        return `${womencard(item.id, item.src , item.name,item.brand, item.product_badge, item.category,item.price , item.totalquantity)}`;
         
     })
     womendec.innerHTML=finalData;
 }
 console.log(finalData);
 console.log(womenArray)
-function womencard(src,name){
+function womencard(id,image, title, brand,product_badge , category, price, totalquantity){
 
     let vari=
 
-  `<div class="card" >
-      <div class="img_div">
-       <a href="">
-         <img src="${src}">
-       </a>
-     </div>
-     <div class="desc">
-         <h2>${name}</h2>
-        <div class="star-div">
-           <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-        </div>
-       <h4>Love - I have this in three colors.
-         Why? Because you can throw it on, and
-         the fit is seamless, it's comfy it's breezy.
-       </h4>
-       <div class="button-div">
-         <a href="">Add to Cart</a>
-         <a href="">Buy Now</a>
-       </div>
-     </div>
-   </div>`;
+  `<div class="card" id="${id}">
+  <div class="img_div" id="${id}">
+      <a href="">
+        <img src="${image}">
+    </a>
+    </div>
+    <div class="desc">
+      <h2>${title}</h2>
+      <p>${category}</p>
+      <h4>
+      ${brand}
+      </h4>
+      <p id="pricedisplay">${price}</p>
+      <p ">${product_badge}</p>
+      <div class="button-div">
+        <a href="#" class="addtocart" id="${id}">Add to Cart</a>
+        <a href="#">Buy Now</a>
+      </div>
+    </div>
+  </div>`;
     return vari;
 }
 
@@ -99,42 +94,37 @@ function mendata(data){
         menArray.push(filteredData[i]);
       }
       // console.log(menArray)
-    let finalData=menArray.map((ele)=>{
-      console.log(ele)
-        return `${mencard(ele.src,ele.name)}`;
+    let finalData=menArray.map((item)=>{
+      
+        return `${mencard(item.id, item.src , item.name,item.brand, item.product_badge, item.category,item.price , item.totalquantity)}`;
         
     })
     mendec.innerHTML=finalData;
 }
 console.log(finalData);
 console.log(menArray)
-function mencard(src,name){
+function mencard(id,image, title, brand,product_badge , category, price, totalquantity){
 
-    let vari=`<div class="card" >
-    <div class="img_div">
-       <a href="">
-         <img src="${src}">
-       </a>
-     </div>
-     <div class="desc">
-       <h2>${name}</h2>
-       <div class="star-div">
-         <i class="fa-solid fa-star"></i>
-         <i class="fa-solid fa-star"></i>
-         <i class="fa-solid fa-star"></i>
-         <i class="fa-solid fa-star"></i>
-         <i class="fa-solid fa-star"></i>
-       </div>
-       <h4>Love - I have this in three colors.
-         Why? Because you can throw it on, and
-         the fit is seamless, it's comfy it's breezy.
-       </h4>
-       <div class="button-div">
-         <a href="">Add to Cart</a>
-         <a href="">Buy Now</a>
-       </div>
-     </div>
-   </div>`;
+    let vari=`<div class="card" id="${id}">
+    <div class="img_div" id="${id}">
+        <a href="">
+          <img src="${image}">
+      </a>
+      </div>
+      <div class="desc">
+        <h2>${title}</h2>
+        <p>${category}</p>
+        <h4>
+        ${brand}
+        </h4>
+        <p id="pricedisplay">${price}</p>
+        <p ">${product_badge}</p>
+        <div class="button-div">
+          <a href="#" class="addtocart" id="${id}">Add to Cart</a>
+          <a href="#">Buy Now</a>
+        </div>
+      </div>
+    </div>`;
     return vari;
 }
 
@@ -154,40 +144,35 @@ function bagsdata(data){
         bagsArray.push(filteredData[i]);
       console.log(bagsArray)
     }
-    let finalData=bagsArray.map((ele)=>{
-        return `${bagscard(ele.src,ele.name)}`;
+    let finalData=bagsArray.map((item)=>{
+        return `${bagscard(item.id, item.src , item.name,item.brand, item.product_badge, item.category,item.price , item.totalquantity)}`;
         
     })
     bagsdec.innerHTML=finalData;
 }
 
-function bagscard(src,name){
+function bagscard(id,image, title, brand,product_badge , category, price, totalquantity){
    
-    let vari=`<div class="card" >
-    <div class="img_div">
-       <a href="">
-         <img src="${src}">
-       </a>
-     </div>
-     <div class="desc">
-       <h2>${name}</h2>
-       <div class="star-div">
-         <i class="fa-solid fa-star"></i>
-         <i class="fa-solid fa-star"></i>
-         <i class="fa-solid fa-star"></i>
-         <i class="fa-solid fa-star"></i>
-         <i class="fa-solid fa-star"></i>
-       </div>
-       <h4>Love - I have this in three colors.
-         Why? Because you can throw it on, and
-         the fit is seamless, it's comfy it's breezy.
-       </h4>
-       <div class="button-div">
-         <a href="">Add to Cart</a>
-         <a href="">Buy Now</a>
-       </div>
-     </div>
-   </div>`;
+    let vari=`<div class="card" id="${id}">
+    <div class="img_div" id="${id}">
+        <a href="">
+          <img src="${image}">
+      </a>
+      </div>
+      <div class="desc">
+        <h2>${title}</h2>
+        <p>${category}</p>
+        <h4>
+        ${brand}
+        </h4>
+        <p id="pricedisplay">${price}</p>
+        <p ">${product_badge}</p>
+        <div class="button-div">
+          <a href="#" class="addtocart" id="${id}">Add to Cart</a>
+          <a href="#">Buy Now</a>
+        </div>
+      </div>
+    </div>`;
     return vari;
 }
 // *************************************** home decore ******************
@@ -205,40 +190,35 @@ function mydata(data){
         array1.push(filteredData[i]);
 
     }
-    let finalData=array1.map((ele)=>{
-        return `${card(ele.src,ele.name)}`;
+    let finalData=array1.map((item)=>{
+        return `${card(item.id, item.src , item.name,item.brand, item.product_badge, item.category,item.price , item.totalquantity)}`;
         
     })
     homedec.innerHTML=finalData;
 }
 
-function card(src,name){
+function card(id,image, title, brand,product_badge , category, price, totalquantity){
  
-    let vari=`<div class="card" >
-    <div class="img_div">
-       <a href="">
-         <img src="${src}">
-       </a>
-     </div>
-     <div class="desc">
-       <h2>${name}</h2>
-       <div class="star-div">
-         <i class="fa-solid fa-star"></i>
-         <i class="fa-solid fa-star"></i>
-         <i class="fa-solid fa-star"></i>
-         <i class="fa-solid fa-star"></i>
-         <i class="fa-solid fa-star"></i>
-       </div>
-       <h4>Love - I have this in three colors.
-         Why? Because you can throw it on, and
-         the fit is seamless, it's comfy it's breezy.
-       </h4>
-       <div class="button-div">
-         <a href="">Add to Cart</a>
-         <a href="">Buy Now</a>
-       </div>
-     </div>
-   </div>`;
+    let vari=`<div class="card" id="${id}">
+    <div class="img_div" id="${id}">
+        <a href="">
+          <img src="${image}">
+      </a>
+      </div>
+      <div class="desc">
+        <h2>${title}</h2>
+        <p>${category}</p>
+        <h4>
+        ${brand}
+        </h4>
+        <p id="pricedisplay">${price}</p>
+        <p ">${product_badge}</p>
+        <div class="button-div">
+          <a href="#" class="addtocart" id="${id}">Add to Cart</a>
+          <a href="#">Buy Now</a>
+        </div>
+      </div>
+    </div>`;
     return vari;
 }
 
@@ -259,40 +239,35 @@ function  kidsdata(data){
         kidsArray.push(filteredData[i]);
       console.log(kidsArray)
     }
-    let finalData=kidsArray.map((ele)=>{
-        return `${kidscard(ele.src,ele.name)}`;
+    let finalData=kidsArray.map((item)=>{
+        return `${kidscard(item.id, item.src , item.name,item.brand, item.product_badge, item.category,item.price , item.totalquantity)}`;
         
     })
     kidsdec.innerHTML=finalData;
 }
 
-function kidscard(src,name){
+function kidscard(id,image, title, brand,product_badge , category, price, totalquantity){
   
-    let vari=`<div class="card" >
-    <div class="img_div">
-       <a href="">
-         <img src="${src}">
-       </a>
-     </div>
-     <div class="desc">
-       <h2>${name}</h2>
-       <div class="star-div">
-         <i class="fa-solid fa-star"></i>
-         <i class="fa-solid fa-star"></i>
-         <i class="fa-solid fa-star"></i>
-         <i class="fa-solid fa-star"></i>
-         <i class="fa-solid fa-star"></i>
-       </div>
-       <h4>Love - I have this in three colors.
-         Why? Because you can throw it on, and
-         the fit is seamless, it's comfy it's breezy.
-       </h4>
-       <div class="button-div">
-         <a href="">Add to Cart</a>
-         <a href="">Buy Now</a>
-       </div>
-     </div>
-   </div>`;
+    let vari=`<div class="card" id="${id}">
+    <div class="img_div" id="${id}">
+        <a href="">
+          <img src="${image}">
+      </a>
+      </div>
+      <div class="desc">
+        <h2>${title}</h2>
+        <p>${category}</p>
+        <h4>
+        ${brand}
+        </h4>
+        <p id="pricedisplay">${price}</p>
+        <p ">${product_badge}</p>
+        <div class="button-div">
+          <a href="#" class="addtocart" id="${id}">Add to Cart</a>
+          <a href="#">Buy Now</a>
+        </div>
+      </div>
+    </div>`;
     return vari;
 }
 
@@ -315,40 +290,35 @@ function  giftdata(data){
       giftArray.push(filteredData[i]);
     console.log(giftArray)
   }
-  let finalData=giftArray.map((ele)=>{
-      return `${giftcard(ele.src,ele.name)}`;
+  let finalData=giftArray.map((item)=>{
+      return `${giftcard(item.id, item.src , item.name,item.brand, item.product_badge, item.category,item.price , item.totalquantity)}`;
       
   })
   giftsdec.innerHTML=finalData;
 }
 
-function giftcard(src,name){
+function giftcard(id,image, title, brand,product_badge , category, price, totalquantity){
 
-  let vari=`<div class="card" >
-  <div class="img_div">
-     <a href="">
-       <img src="${src}">
-     </a>
-   </div>
-   <div class="desc">
-     <h2>${name}</h2>
-     <div class="star-div">
-       <i class="fa-solid fa-star"></i>
-       <i class="fa-solid fa-star"></i>
-       <i class="fa-solid fa-star"></i>
-       <i class="fa-solid fa-star"></i>
-       <i class="fa-solid fa-star"></i>
-     </div>
-     <h4>Love - I have this in three colors.
-       Why? Because you can throw it on, and
-       the fit is seamless, it's comfy it's breezy.
-     </h4>
-     <div class="button-div">
-       <a href="">Add to Cart</a>
-       <a href="">Buy Now</a>
-     </div>
-   </div>
- </div>`;
+  let vari=`<div class="card" id="${id}">
+  <div class="img_div" id="${id}">
+      <a href="">
+        <img src="${image}">
+    </a>
+    </div>
+    <div class="desc">
+      <h2>${title}</h2>
+      <p>${category}</p>
+      <h4>
+      ${brand}
+      </h4>
+      <p id="pricedisplay">${price}</p>
+      <p ">${product_badge}</p>
+      <div class="button-div">
+        <a href="#" class="addtocart" id="${id}">Add to Cart</a>
+        <a href="#">Buy Now</a>
+      </div>
+    </div>
+  </div>`;
   return vari;
 }
 

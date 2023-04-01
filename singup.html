@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="paymentpage.css">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="signup.css">
 
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -18,7 +19,6 @@
 
 
 </head>
-
 
 <header>
     <nav>
@@ -264,31 +264,60 @@
 </header>
 
 
-
 <body>
     <div class="container">
-        <div class="details">
-            <div class="address">
-                <a href="addressdetails.html">Address</a>
-            </div>
-            <div class="PaymentBycard">
-                <a href="cardpayment.html">Payment By card</a>
-            </div>
-            <div class="PaymentByupi">
-                <a href="upipayment.html">Payment By UPI</a>
+        <div class="forms">
+            <div class="form login">
+                <span class="title">SignUp here</span>
 
+                
+                <form action="#">
+                    <div class="input-field">
+                        <input type="text" name="" id="name" placeholder="Enter your name" required>
+                        <i class="uil uil-user"></i>
+                    </div>
+
+                    <div class="input-field">
+                        <input type="text" name="" id="email" placeholder="Enter your email" required>
+                    <i class="uil uil-envelope"></i>
+                    </div>
+                    
+                    <div class="input-field">
+                        <input type="password" name="" id="" 
+                        class="password" placeholder="Enter your password" required>
+                        <i class="uil uil-lock icon"></i>
+                        
+                    </div>
+
+                    <div class="input-field">
+                        <input type="password" class="conpassword" name="" id="" placeholder="Confirm your password" required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash shoehidepw"></i>
+                    </div>
+
+                    <p id="message"></p>
+
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="logcheck">
+                            <label for="logcheck" class="text">Remamber me</label>
+                        </div>
+                        
+                    </div>
+
+                    <div class="input-field button">
+                        <input type="button" name="" id="" value="Signup Now" onclick="test()">
+                    </div>
+                </form>
+                <div class="login-signup">
+                    <span class="text">Already a member?
+                        <a href="./login.html" class="text signup-text">Login now</a>
+                    </span>
+                </div>
             </div>
-            <div class="COD">
-                <a href="addressdetails.html">Case on Delivery</a>
-            </div>
-        </div>
-        <div class="buttons">
-            <a href=""><button>Back to Home</button></a>
-            <a href="product_vei.HTML"><button>Back to Cart</button></a>
         </div>
     </div>
 </body>
-
 <footer>
   <div id="footer-child">
       <div>
@@ -337,4 +366,5 @@
       </div>
   </div>
 </footer>
+<script src="signup.js"></script>
 </html>
