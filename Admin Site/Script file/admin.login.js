@@ -100,7 +100,7 @@ form.addEventListener("submit", (e) => {
       name = ele.name;
     });
     localStorage.setItem("admin", name);
-    window.open("http://127.0.0.1:5500/admin.html", "_self");
+    window.location = "./admin.html";
     localStorage.setItem("check", true);
   }
 });

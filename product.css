@@ -291,6 +291,7 @@ border: 1px solid transparent;
 .card > .desc p{
   background-color: transparent;
 }
+
 .card > .desc > h2,.card > .desc > .stars{
   margin: 5px 0px;
   list-style: none;

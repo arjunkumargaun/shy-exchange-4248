@@ -74,14 +74,9 @@ async function fetchandremder(pagenumber){
   console.log(totalPosts)
   let data = await response.json()
   mainbody.innerHTML = renderingdata(data)
+
   let addtocart = document.querySelectorAll(".addtocart")
   let viewcart = document.querySelectorAll(".img_div")
-
-
-
-  
-
-
 
   // let colorchange = document.querySelectorAll(".categoryfilter div")
   
@@ -108,19 +103,6 @@ for(let key of viewcart){
     // console.log("dataarr")
   })
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -340,6 +322,7 @@ function getcard(id,image, title, brand,product_badge , category, price, totalqu
   <div class="card" id="${id}">
   <div class="img_div" id="${id}">
       <a href="#">
+
         <img src="${image}">
     </a>
     </div>
@@ -354,6 +337,7 @@ function getcard(id,image, title, brand,product_badge , category, price, totalqu
       <div class="button-div">
         <a href="#" class="addtocart" id="${id}">Add to Cart</a>
         <a href="paymentpage.html">Buy Now</a>
+
       </div>
     </div>
   </div>

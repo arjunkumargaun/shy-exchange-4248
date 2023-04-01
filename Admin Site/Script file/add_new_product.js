@@ -14,7 +14,7 @@ sidebarToggle.addEventListener("click", () => {
 let logout = document.querySelector(".logout-mode");
 logout.addEventListener("click", () => {
   localStorage.removeItem("check");
-  window.open("http://127.0.0.1:5500/admin.login.html", "_self");
+  window.location="./admin.login.html";
 });
 
 let url = "https://63c9170d320a0c4c9540575f.mockapi.io/products";
@@ -64,7 +64,7 @@ form.addEventListener("submit", (e) => {
         form.reset();
       }, 1000);
       setTimeout(() => {
-        window.open("http://127.0.0.1:5500/all_Product.html", "_self");
+        window.location="./all_Product.html";
       }, 2000);
     });
 

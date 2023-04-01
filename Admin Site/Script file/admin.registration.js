@@ -81,7 +81,7 @@ window.addEventListener("load", () => {
   new_form.style.display = "none";
   passcode_div.style.display = "block";
   if (registration_check !== null) {
-    window.open("http://127.0.0.1:5500/admin.login.html", "_self");
+  window.location='./admin.login.html'
   }
 });
 
@@ -112,7 +112,7 @@ e.preventDefault();
     };
     registration(data);
     localStorage.setItem("registration", true);
-    window.open("http://127.0.0.1:5500/admin.login.html", "_self");
+    window.location="./admin.login.html"
   }
 });
 

@@ -11,6 +11,7 @@
   align-items: center;
   width: 90%;
   margin: auto;
+
 }
 #image {
   width: 50%;
@@ -193,6 +194,7 @@
 
 #review-show {
   width: 50%;
+
 }
 
 .consumer>:nth-child(1){
