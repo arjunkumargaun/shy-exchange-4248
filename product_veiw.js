@@ -73,6 +73,16 @@ function excute(responseNumber, fetchData) {
   addToCardButton.textContent = "Add to cart";
   buy_now.textContent = "Buy Now";
 
+
+  addToCardButton.addEventListener("click", () => {
+    addToCardButton.textContent = addToCartHere(data);
+  }); // for add to card
+
+  buy_now.addEventListener("click", () => {
+    BuyNow(data);
+  }); // for buy now page 
+
+
   addToCart.append(addToCardButton, buy_now);
   div.append(
     badge,
