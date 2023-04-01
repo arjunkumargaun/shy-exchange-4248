@@ -150,13 +150,13 @@ top: 10px;
 /* ***************************** bottom nav bottom nav *********************** */
 #bottom-nav{
     padding-top: 30px;
-    /* border: 3px solid red; */
+    border: 3px solid red;
     align-items: center;
     width: 95%;
     height: auto;
     display: flex;
     margin-inline: auto;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 #bottom-nav>div:nth-child(2){
     display: flex;
@@ -164,8 +164,14 @@ top: 10px;
     /* border: 2px solid red; */
     align-items: center;
 }
-#bottom-nav>div:nth-child(2),#bottom-nav>div:nth-child(3){
+#bottom-nav>div:nth-child(2){
     margin-top: 50px;
+}
+#bottom-nav>div:nth-child(3){
+    margin-top: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 #bottom-nav >div{
     /* border: 2px solid green; */
@@ -198,7 +204,6 @@ top: 10px;
     padding: 12px 18px;
     display: flex;
     width: 45%;
-   
     align-items: center;
 }
 
@@ -284,7 +289,7 @@ margin-top: 10px;
 
 /************************************** women grand div  ***********************************/
 .grand-div{
-    padding: 30px 0px;
+    padding: 0px 0px;
     width: 100%;
 }
 .grand-div h1{
@@ -295,24 +300,35 @@ margin-top: 10px;
 .grand-div > .grand-div-child{
     width: 95%;
     height: auto;
-    margin-inline: auto;
-    gap: 15px 10px;
+    /* margin-left: auto; */
+    gap: 15px 15px;
+    margin-right: 0px;
     display: flex;
+    padding-left: 4%;
+}
+div#men-div.grand-div-child{
+    margin: 0px;
+    padding: 0px;
 }
 
 .grand-div-child > .card{
+    width: 25%;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 .card .img_div {
     width: 100%;
     height: auto;
 }
-.card .img_div > a > img{
+.card .img_div > img{
     width: 100%;
     height: 350px;
 }
+.card .img_div > img:hover{
+    cursor: pointer;
+}
 .card > .desc{
     padding: 20px;
+    border: 2px solid red;
 }
 .card > .desc > h2,.card > .desc > .star-div{
     margin: 5px 0px;
@@ -326,12 +342,19 @@ margin-top: 10px;
     margin-top: 20px;
     justify-content: space-between;
 }
-.desc .button-div a{
+.card .button-div {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border: 2px solid green;
+}
+.card .button-div button{
     background-color: #232F3E;
     color: white;
-    text-decoration: none;
+    border: none;
     padding: 8px 12px;
     border-radius: 5px;
+
 }
 /************************************** media query media query ***********************************/
 /************************************** media query media query ***********************************/
@@ -532,10 +555,11 @@ display: none;
     .grand-div > .grand-div-child{
         width: 95%;
         height: auto;
-        margin-inline: auto;
-        gap: 15px 10px;
+        /* margin-inline: auto; */
+        gap: 15px 20px;
         display: flex;
         flex-wrap: wrap;
+        padding-left: 10%;
     }
     /* .grand-div{
 
@@ -553,6 +577,8 @@ display: none;
     #bottom-nav>div:nth-child(3){
         width: 80%;
     }
+
+
 }
 
 

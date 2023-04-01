@@ -4,6 +4,7 @@ let mendec=document.getElementById("men_div");
 let womendec=document.getElementById("women_div");
 let kidsdec=document.getElementById("kids_div");
 let giftsdec=document.getElementById("gift_div");
+let product_count=document.getElementById("product_count");
 let URL=`https://63c9170d320a0c4c9540575f.mockapi.io/products`;
 let giftArray=[];
 let giftdec=document.getElementById("gift_div");
@@ -12,6 +13,12 @@ let menArray=[];
 let womenArray=[];
 let kidsArray=[];
 let bagsArray=[];
+
+let viewcart = JSON.parse(localStorage.getItem("veiwproduct")) || []
+
+let addtocartarr = JSON.parse(localStorage.getItem("addtocart")) || []
+
+product_count.innerHTML=addtocartarr.length;
 window.addEventListener("load",(e)=>{
     e.preventDefault();
     
@@ -94,15 +101,21 @@ function renderingdata1(data){
 
       let addtocartbtn = document.createElement("button")
       addtocartbtn.innerHTML = "Add To Cart"
+    //   if(){}
       addtocartbtn.addEventListener("click",()=>{
           addtocartarr.push(element.id)
           console.log(addtocartarr)
+          alert("Product Add to Cart")
+          addtocartbtn.innerHTML="Added To Cart";
+          product_count.innerHTML=addtocartarr.length;
           localStorage.setItem("addtocart",JSON.stringify(addtocartarr))
       })
 
       let buytbtn = document.createElement("button")
       buytbtn.innerHTML = "Buy"
-      
+      buytbtn.addEventListener("click",(e)=>{
+        window.location.assign("paymentpage.html");
+      })
       
       
       div3.append(Name, Category,brand, Price,product_badge,addtocartbtn, buytbtn)
