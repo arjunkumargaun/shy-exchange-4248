@@ -73,6 +73,7 @@ function excute(responseNumber, fetchData) {
   addToCardButton.textContent = "Add to cart";
   buy_now.textContent = "Buy Now";
 
+
   addToCardButton.addEventListener("click", () => {
     addToCardButton.textContent = addToCartHere(data);
   }); // for add to card
@@ -80,6 +81,7 @@ function excute(responseNumber, fetchData) {
   buy_now.addEventListener("click", () => {
     BuyNow(data);
   }); // for buy now page 
+
 
   addToCart.append(addToCardButton, buy_now);
   div.append(
@@ -95,16 +97,4 @@ function excute(responseNumber, fetchData) {
     addToCart
   );
   details.append(div);
-}
-
-function addToCartHere(element) {
-  let product_id = element.id;
-  Data_For_AddToCart.push(product_id);
-  
-  localStorage.setItem("addtocart", JSON.stringify(Data_For_AddToCart));
-
-  return "Added to Cart";
-}
-function BuyNow(element) {
-  console.log(element);
 }

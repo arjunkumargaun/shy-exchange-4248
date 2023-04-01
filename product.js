@@ -62,26 +62,21 @@ clear1.addEventListener("click",()=>{
 
 window.addEventListener("load",(e)=>{
   e.preventDefault()
-  fetchandremder()
+  fetchandremder(1)
 })
 
 
-async function fetchandremder(){
+async function fetchandremder(pagenumber){
   try {
     mainbody.innerHTML = null
-  let res = await fetch(`${api}`)
-  let data = await res.json()
+  let response = await fetch(`${api}?limit=12&page=${pagenumber}`)
+  let totalPosts = response.headers.get("X-Total-Count")
+  console.log(totalPosts)
+  let data = await response.json()
   mainbody.innerHTML = renderingdata(data)
-  let stars = document.querySelectorAll(".star")
-  let output = document.querySelector(".displayrating")
+
   let addtocart = document.querySelectorAll(".addtocart")
   let viewcart = document.querySelectorAll(".img_div")
-
-
-
-  
-
-
 
   // let colorchange = document.querySelectorAll(".categoryfilter div")
   
@@ -100,90 +95,14 @@ for(let key of viewcart){
   // console.log(key)
   key.addEventListener("click",(e)=>{
     // console.log()
-    console.log(key.src)
+    // console.log(key.src)
     let ide = e.target.id
     viewaarr.push(ide)
     localStorage.setItem("veiwproduct",JSON.stringify(key.id))
-    // console.log(dataarr)
-    window.location.assign("product_view.html");
+    window.location.assign("product_vei.html")
+    // console.log("dataarr")
   })
 }
-
-
- 
-
-  for(let key of stars){
-    key.addEventListener("click",()=>{
-      console.log(key)
-    })
-  }
-
-
-
-  let arr = ["click","mouseover","mouseout"]
-
-for(let i=0;i<stars.length;i++){
-  stars[i].starvalue = i+1
-  // stars[i].addEventListener("click",()=>{
-  //   console.log("nnnn")
-  // })
-  arr.forEach((e)=>{
-    stars[i].addEventListener(e, showrating)
-  })
-}
-
-function showrating(e){
-  let type = e.type
-  let starvalue = this.starvalue
-
-// console.log(type)
-
-  stars.forEach((elem,ind)=>{
-    if(type === "click"){
-      if(ind< starvalue){
-        elem.classList.add("orange")
-      }else{
-        elem.classList.remove("orange")
-      }
-    }
-    if(type === "mouseover"){
-      if(ind< starvalue){
-        elem.classList.add("yellow")
-      }else{
-        elem.classList.remove("yellow")
-      }
-    }
-    if(type === "mouseout"){
-      elem.classList.remove("yellow")
-    }
-  })
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -402,7 +321,8 @@ function getcard(id,image, title, brand,product_badge , category, price, totalqu
   return `
   <div class="card" id="${id}">
   <div class="img_div" id="${id}">
-      <a href="">
+      <a href="#">
+
         <img src="${image}">
     </a>
     </div>
@@ -416,7 +336,8 @@ function getcard(id,image, title, brand,product_badge , category, price, totalqu
       <p ">${product_badge}</p>
       <div class="button-div">
         <a href="#" class="addtocart" id="${id}">Add to Cart</a>
-        <a href="#">Buy Now</a>
+        <a href="paymentpage.html">Buy Now</a>
+
       </div>
     </div>
   </div>
