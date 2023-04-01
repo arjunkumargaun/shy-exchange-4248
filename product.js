@@ -1,4 +1,4 @@
-let api = 'https://63c9170d320a0c4c9540575f.mockapi.io/products?_limit=10&page=1'
+let api = 'https://63c9170d320a0c4c9540575f.mockapi.io/products'
 let form = document.querySelector("#category-filter form")
 let min = document.getElementById("min")
 let clear1 = document.querySelector(".clear")
@@ -21,33 +21,27 @@ let Zarafilter = document.querySelector("#Zara")
 let topsfilter = document.querySelector("#topsfilter")
 let jeanfilter = document.querySelector("#jeanfilter")
 let bagpacks = document.querySelector("#bagpacks")
+
+
+
 let searchform = document.querySelector("#form")
-let stars = document.querySelectorAll(".star")
-let output = document.querySelector(".displayrating")
+
+
+
+
+let dataarr = []
+let viewaarr = []
 
 
 
 
 
-for(let i=0;i<stars.length;i++){
-  stars[i].starvalue = i+1
-  ["click","mouseover","mouseout"].forEach((e)=>{
-    stars[i].addEventListener(e, showrating)
-  })
-}
+  // console.log(addtocartarr)
 
-function showrating(e){
-  let type = e.type
-  let starvalue = this.starvalue
 
-  stars.forEach((elem,ind)=>{
-    if(type === "click"){
-      if(ind< starvalue){
-        
-      }
-    }
-  })
-}
+
+
+
 
 
 
@@ -68,16 +62,64 @@ clear1.addEventListener("click",()=>{
 
 window.addEventListener("load",(e)=>{
   e.preventDefault()
-  fetchandremder()
+  fetchandremder(1)
 })
 
 
-async function fetchandremder(){
+async function fetchandremder(pagenumber){
   try {
     mainbody.innerHTML = null
-  let res = await fetch(`${api}`)
-  let data = await res.json()
+  let response = await fetch(`${api}?limit=12&page=${pagenumber}`)
+  let totalPosts = response.headers.get("X-Total-Count")
+  console.log(totalPosts)
+  let data = await response.json()
   mainbody.innerHTML = renderingdata(data)
+  let addtocart = document.querySelectorAll(".addtocart")
+  let viewcart = document.querySelectorAll(".img_div")
+
+
+
+  
+
+
+
+  // let colorchange = document.querySelectorAll(".categoryfilter div")
+  
+
+for(let key of addtocart){
+  key.addEventListener("click",(e)=>{
+    // console.log()
+    // console.log(key.id)
+    let ide = e.target.id
+    dataarr.push(ide)
+    localStorage.setItem("addtocart",JSON.stringify(dataarr))
+    // console.log(dataarr)
+  })
+}
+for(let key of viewcart){
+  // console.log(key)
+  key.addEventListener("click",(e)=>{
+    // console.log()
+    // console.log(key.src)
+    let ide = e.target.id
+    viewaarr.push(ide)
+    localStorage.setItem("veiwproduct",JSON.stringify(key.id))
+    window.location.assign("product_vei.html")
+    // console.log("dataarr")
+  })
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -99,22 +141,8 @@ console.log(searchpara)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 allproductsfilter.addEventListener("click",()=>{
   mainbody.innerHTML = renderingdata(data)
-  allproductsfilter.style.backgroundColor = "rgb(17, 17, 153)"
 })
 mensfilter.addEventListener("click",()=>{
   let filtered = data.filter((ele)=>{
@@ -267,6 +295,7 @@ bagpacks.addEventListener("click",()=>{
       return false
     }
   })
+  
   mainbody.innerHTML = renderingdata(filtered)
 })
 
@@ -301,40 +330,33 @@ mainbody.innerHTML = renderingdata(filtered)
 function renderingdata(data){
   return `
     ${data.map((item)=>{
-  return getcard(item.id, item.src , item.name,item.brand, item.description, item.category,item.price , item.totalquantity)
+  return getcard(item.id, item.src , item.name,item.brand, item.product_badge, item.category,item.price , item.totalquantity)
 }).join("")}
 
   `
 }
-function getcard(id,image, title, brand,description, category, price, totalquantity){
+function getcard(id,image, title, brand,product_badge , category, price, totalquantity){
   return `
-  <div class="card" >
-  <div class="img_div">
-      <a href="">
+  <div class="card" id="${id}">
+  <div class="img_div" id="${id}">
+      <a href="#">
         <img src="${image}">
     </a>
     </div>
     <div class="desc">
       <h2>${title}</h2>
-      <ul class="stars">
-      <li class="star"><i class="fa-solid fa-star"></i></li>
-      <li class="star"><i class="fa-solid fa-star"></i></li>
-      <li class="star"><i class="fa-solid fa-star"></i></li>
-      <li class="star"><i class="fa-solid fa-star"></i></li>
-      <li class="star"><i class="fa-solid fa-star"></i></li>
-      </ul>
-       <p class="displayrating"></p>
+      <p>${category}</p>
       <h4>
       ${brand}
       </h4>
+      <p id="pricedisplay">${price}</p>
+      <p ">${product_badge}</p>
       <div class="button-div">
-        <a href="">Add to Cart</a>
-        <a href="">Buy Now</a>
+        <a href="#" class="addtocart" id="${id}">Add to Cart</a>
+        <a href="paymentpage.html">Buy Now</a>
       </div>
     </div>
   </div>
 					
     `
 }
-console.log(stars)
-output.innerHTML = "yes"

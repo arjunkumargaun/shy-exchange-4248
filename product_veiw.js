@@ -1,6 +1,7 @@
-let localStrage_data = JSON.parse(localStorage.getItem("")); // getting data
+let localStrage_data = JSON.parse(localStorage.getItem("veiwproduct")); // getting data
 let image = document.querySelector("#image");
 let details = document.querySelector("#details");
+console.log(localStrage_data)
 
 
 
