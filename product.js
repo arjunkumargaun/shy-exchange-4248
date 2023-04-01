@@ -29,8 +29,9 @@ let searchform = document.querySelector("#form")
 
 
 
-let dataarr = []
-let viewaarr = []
+let viewcart = JSON.parse(localStorage.getItem("veiwproduct")) || []
+
+let addtocartarr = JSON.parse(localStorage.getItem("addtocart")) || []
 
 
 
@@ -71,119 +72,10 @@ async function fetchandremder(){
     mainbody.innerHTML = null
   let res = await fetch(`${api}`)
   let data = await res.json()
-  mainbody.innerHTML = renderingdata(data)
-  let stars = document.querySelectorAll(".star")
-  let output = document.querySelector(".displayrating")
-  let addtocart = document.querySelectorAll(".addtocart")
-  let viewcart = document.querySelectorAll(".img_div")
-
-
-
-  
-
-
-
-  // let colorchange = document.querySelectorAll(".categoryfilter div")
-  
-
-for(let key of addtocart){
-  key.addEventListener("click",(e)=>{
-    // console.log()
-    // console.log(key.id)
-    let ide = e.target.id
-    dataarr.push(ide)
-    localStorage.setItem("addtocart",JSON.stringify(dataarr))
-    // console.log(dataarr)
-  })
-}
-for(let key of viewcart){
-  // console.log(key)
-  key.addEventListener("click",(e)=>{
-    // console.log()
-    console.log(key.src)
-    let ide = e.target.id
-    viewaarr.push(ide)
-    localStorage.setItem("veiwproduct",JSON.stringify(key.id))
-    // console.log(dataarr)
-  })
-}
-
-
+   renderingdata(data)
  
 
-  for(let key of stars){
-    key.addEventListener("click",()=>{
-      console.log(key)
-    })
-  }
-
-
-
-  let arr = ["click","mouseover","mouseout"]
-
-for(let i=0;i<stars.length;i++){
-  stars[i].starvalue = i+1
-  // stars[i].addEventListener("click",()=>{
-  //   console.log("nnnn")
-  // })
-  arr.forEach((e)=>{
-    stars[i].addEventListener(e, showrating)
-  })
-}
-
-function showrating(e){
-  let type = e.type
-  let starvalue = this.starvalue
-
-// console.log(type)
-
-  stars.forEach((elem,ind)=>{
-    if(type === "click"){
-      if(ind< starvalue){
-        elem.classList.add("orange")
-      }else{
-        elem.classList.remove("orange")
-      }
-    }
-    if(type === "mouseover"){
-      if(ind< starvalue){
-        elem.classList.add("yellow")
-      }else{
-        elem.classList.remove("yellow")
-      }
-    }
-    if(type === "mouseout"){
-      elem.classList.remove("yellow")
-    }
-  })
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
 
 
   searchform.addEventListener("submit",(e)=>{
@@ -197,15 +89,24 @@ console.log(searchpara)
             return false
         }
     })
-    mainbody.innerHTML = renderingdata(filtered1)
+    renderingdata(filtered1)
   })
 
 
 
 
+
+
+
+
+
 allproductsfilter.addEventListener("click",()=>{
-  mainbody.innerHTML = renderingdata(data)
+  
+   renderingdata(data)
 })
+
+
+
 mensfilter.addEventListener("click",()=>{
   let filtered = data.filter((ele)=>{
     if(ele.category=="mens"){
@@ -214,7 +115,10 @@ mensfilter.addEventListener("click",()=>{
       return false
     }
   })
-  mainbody.innerHTML = renderingdata(filtered)
+renderingdata(filtered)
+
+
+  
 })
 womensfilter.addEventListener("click",()=>{
   let filtered = data.filter((ele)=>{
@@ -224,7 +128,7 @@ womensfilter.addEventListener("click",()=>{
       return false
     }
   })
-  mainbody.innerHTML = renderingdata(filtered)
+renderingdata(filtered)
 })
 kidsfilter.addEventListener("click",()=>{
   let filtered = data.filter((ele)=>{
@@ -234,7 +138,7 @@ kidsfilter.addEventListener("click",()=>{
       return false
     }
   })
-  mainbody.innerHTML = renderingdata(filtered)
+renderingdata(filtered)
 })
 bagsfilter.addEventListener("click",()=>{
   let filtered = data.filter((ele)=>{
@@ -244,7 +148,7 @@ bagsfilter.addEventListener("click",()=>{
       return false
     }
   })
-  mainbody.innerHTML = renderingdata(filtered)
+ renderingdata(filtered)
 })
 decorefilter.addEventListener("click",()=>{
   let filtered = data.filter((ele)=>{
@@ -254,7 +158,7 @@ decorefilter.addEventListener("click",()=>{
       return false
     }
   })
-  mainbody.innerHTML = renderingdata(filtered)
+renderingdata(filtered)
 })
 giftsfilter.addEventListener("click",()=>{
   let filtered = data.filter((ele)=>{
@@ -264,7 +168,7 @@ giftsfilter.addEventListener("click",()=>{
       return false
     }
   })
-  mainbody.innerHTML = renderingdata(filtered)
+renderingdata(filtered)
 })
 
 
@@ -282,7 +186,7 @@ nikefilter.addEventListener("click",()=>{
       return false
     }
   })
-  mainbody.innerHTML = renderingdata(filtered)
+  renderingdata(filtered)
 })
 Adidasfilter.addEventListener("click",()=>{
   let filtered = data.filter((ele)=>{
@@ -292,7 +196,7 @@ Adidasfilter.addEventListener("click",()=>{
       return false
     }
   })
-  mainbody.innerHTML = renderingdata(filtered)
+renderingdata(filtered)
 })
 Louisfilter.addEventListener("click",()=>{
   let filtered = data.filter((ele)=>{
@@ -302,7 +206,7 @@ Louisfilter.addEventListener("click",()=>{
       return false
     }
   })
-  mainbody.innerHTML = renderingdata(filtered)
+  renderingdata(filtered)
 })
 Cartierfilter.addEventListener("click",()=>{
   let filtered = data.filter((ele)=>{
@@ -312,7 +216,7 @@ Cartierfilter.addEventListener("click",()=>{
       return false
     }
   })
-  mainbody.innerHTML = renderingdata(filtered)
+renderingdata(filtered)
 })
 Zarafilter.addEventListener("click",()=>{
   let filtered = data.filter((ele)=>{
@@ -322,7 +226,7 @@ Zarafilter.addEventListener("click",()=>{
       return false
     }
   })
-  mainbody.innerHTML = renderingdata(filtered)
+renderingdata(filtered)
 })
 
 
@@ -337,7 +241,7 @@ topsfilter.addEventListener("click",()=>{
       return false
     }
   })
-  mainbody.innerHTML = renderingdata(filtered)
+renderingdata(filtered)
 })
 jeanfilter.addEventListener("click",()=>{
   let filtered = data.filter((ele)=>{
@@ -347,7 +251,7 @@ jeanfilter.addEventListener("click",()=>{
       return false
     }
   })
-  mainbody.innerHTML = renderingdata(filtered)
+ renderingdata(filtered)
 })
 bagpacks.addEventListener("click",()=>{
   let filtered = data.filter((ele)=>{
@@ -358,7 +262,7 @@ bagpacks.addEventListener("click",()=>{
     }
   })
   
-  mainbody.innerHTML = renderingdata(filtered)
+renderingdata(filtered)
 })
 
 
@@ -380,7 +284,7 @@ let filtered = data.filter((element)=>{
     return false
   }
 })
-mainbody.innerHTML = renderingdata(filtered)
+renderingdata(filtered)
 
   })
   console.log(data)
@@ -390,35 +294,63 @@ mainbody.innerHTML = renderingdata(filtered)
 }
 
 function renderingdata(data){
-  return `
-    ${data.map((item)=>{
-  return getcard(item.id, item.src , item.name,item.brand, item.product_badge, item.category,item.price , item.totalquantity)
-}).join("")}
+  mainbody.innerHTML = ""
+  data.forEach((element,index)=>{
+      let div = document.createElement("div")
+      div.classList.add("card")
 
-  `
-}
-function getcard(id,image, title, brand,product_badge , category, price, totalquantity){
-  return `
-  <div class="card" id="${id}">
-  <div class="img_div" id="${id}">
-      <a href="">
-        <img src="${image}">
-    </a>
-    </div>
-    <div class="desc">
-      <h2>${title}</h2>
-      <p>${category}</p>
-      <h4>
-      ${brand}
-      </h4>
-      <p id="pricedisplay">${price}</p>
-      <p ">${product_badge}</p>
-      <div class="button-div">
-        <a href="#" class="addtocart" id="${id}">Add to Cart</a>
-        <a href="#">Buy Now</a>
-      </div>
-    </div>
-  </div>
-					
-    `
+      let div2 = document.createElement("div")
+      div2.classList.add("img_div")
+      div2.addEventListener("click",()=>{
+          viewcart = [element.id]
+          localStorage.setItem("veiwproduct",JSON.stringify(viewcart))
+      })
+
+      let img = document.createElement("img")
+      img.setAttribute("src",element.src)
+      
+
+      let div3 = document.createElement("div")
+      div3.classList.add("desc")
+
+
+      let Name = document.createElement("h2")
+      Name.innerText = element.name
+
+      
+      let buttondiv = document.createElement("div")
+      buttondiv.classList.add("button-div")
+      
+      
+      let Category = document.createElement("p")
+      Category.innerText = element.category
+
+      let brand = document.createElement("p")
+      brand.innerText = element.brand
+      
+      let Price = document.createElement("p")
+      Price.innerText = element.price
+
+      let product_badge = document.createElement("p")
+      product_badge.innerText = element.product_badge
+
+
+      let addtocartbtn = document.createElement("button")
+      addtocartbtn.innerHTML = "Add To Cart"
+      addtocartbtn.addEventListener("click",()=>{
+          addtocartarr.push(element.id)
+          console.log(addtocartarr)
+          localStorage.setItem("addtocart",JSON.stringify(addtocartarr))
+      })
+
+      let buytbtn = document.createElement("button")
+      buytbtn.innerHTML = "Buy"
+      
+      
+      
+      div3.append(Name, Category,brand, Price,product_badge,addtocartbtn, buytbtn)
+      div2.append(img)
+      div.append(div2,div3,buttondiv)
+      mainbody.append(div)
+      })
 }
