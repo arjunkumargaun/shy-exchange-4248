@@ -37,7 +37,7 @@ section {
   white-space: normal;
   word-break: break-word;
   color: #FFF;
-  z-index: 100;
+  z-index: 0;
   font-family: "Oswald", sans-serif;
   text-transform: uppercase;
   font-weight: normal;
