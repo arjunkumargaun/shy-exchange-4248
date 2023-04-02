@@ -4,6 +4,7 @@ body{
     align-items: center; 
     width: 100%;
     height: 100vh;
+    flex-direction: column;
     border: 2px solid black;
     margin: auto;
     background-color: rgb(36, 53, 53);
@@ -17,6 +18,8 @@ body{
     display: none;
 }
 nav{
+    top: 0;
+    left: 0;
 position: fixed; 
  z-index: 99;
 width: 100%;
@@ -599,7 +602,8 @@ display: none;
 
 .container{
     border: 2px solid black;
-   width: 20%;
+   width: 400px;
+   margin-top: 50px;
     background-color: rgb(234, 237, 240);
     border-radius: 15px;
 }
@@ -641,3 +645,24 @@ cursor: pointer;
     background-color: rgb(70, 87, 87);
     color: aliceblue;
 }
+
+.alert {
+    background-color: teal;
+    width: max-content;
+    padding: 20px;
+    color: white;
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 19;
+    font-weight: 600;
+    letter-spacing: 2px;
+    display: none;
+    text-align: center;
+    border-radius: 4px;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }

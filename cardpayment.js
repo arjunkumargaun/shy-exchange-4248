@@ -16,26 +16,26 @@ let cardarr = JSON.parse(localStorage.getItem("carddetail"))
 
 
 
-form.addEventListener("submit",(e)=>{
+checkout.addEventListener("click",(e)=>{
     e.preventDefault()
     carddata()
 })
 function carddata(){
-    let name = name.value
-    let number = number.value
-    let month = month.value
-    let year = year.value
-    let cvv = cvv.value
+    let name1 = name.value
+    let number1 = number.value
+    let month1 = month.value
+    let year1 = year.value
+    let cvv1 = cvv.value
 
-
+    console.log("yes")
 
     let formdata = [{
-        name : name,
-        number : number,
-        month : month,
-        city : city,
-        year : year,
-        cvv : cvv
+        name : name1,
+        number : number1,
+        month : month1,
+        city : cvv1,
+        year : year1,
+        cvv : cvv1
     }]
     cardarr = formdata
     localStorage.setItem("carddetail",JSON.stringify(cardarr))
