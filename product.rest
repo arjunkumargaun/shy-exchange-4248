@@ -9,10 +9,44 @@ Content-Type: application/json
 }
 
 ###
-PATCH   https://63c9170d320a0c4c9540575f.mockapi.io/products/109
+
+
+
+POST https://63c9170d320a0c4c9540575f.mockapi.io/products
+Content-type : application/json; charset=UTF-8
+
+{
+    
+   
+  "src": "https://m.media-amazon.com/images/I/517dH44zs7L._SX522_.jpg",
+  "name": "Antique Metal Aesthetic",
+  "Comvalue": 60,
+  "price": 30,
+  "category": "gifts",
+  "totalquantity": 200,
+  "status": "pending",
+  "ispurchased": false,
+  "badge": "New!",
+  "Compvalue": "$54.95",
+  "brand": "",
+  "rating": "1.7",
+  "product_badge": "homedecore",
+  "customer id": false
+    
+
+}
+###
+
+PATCH   https://63c9170d320a0c4c9540575f.mockapi.io/products/114
 Content-Type: application/json
 
-{"price":80}
+{
+    
+   
+   
+    
+
+}
 
 ###
 

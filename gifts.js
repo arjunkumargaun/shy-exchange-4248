@@ -6,6 +6,28 @@ let Adidasfilter = document.querySelector("#Adidas")
 let Louisfilter = document.querySelector("#Louis")
 let Cartierfilter = document.querySelector("#Cartier")
 let Zarafilter = document.querySelector("#Zara")
+let lowtohigh = document.getElementById("lowtohigh")
+let hightolow = document.getElementById("hightolow")
+
+
+
+
+let arr = []
+let max = document.getElementById("max")
+let min = document.getElementById("min")
+let form = document.querySelector("#category-filter form")
+let clear1 = document.querySelector(".clear")
+max.value = priceslider.value
+
+
+priceslider.oninput = function(){
+  max.value = priceslider.value
+}
+clear1.addEventListener("click",()=>{
+  max.value = 50
+  min.value = 0
+  priceslider.value = 50
+})
 
 
 
@@ -24,34 +46,65 @@ async function mensdata(){
         let res = await fetch(api)
         let data = await res.json()
 
-        renderingdata(data)
-
-        searchform.addEventListener("submit",(e)=>{
+        form.addEventListener("submit",(e)=>{
           e.preventDefault()
-          let searchpara = searchform.search.value
-      console.log(searchpara)
-          let filtered1 = data.filter((element)=>{
-              if(element.name.toUpperCase().includes(searchpara.toUpperCase())===true){
-                  return true
-              }else{
-                  return false
-              }
-          })
-          renderingdata(filtered1)
+          let lower = +(min.value)
+          let upper = +(max.value)
+      
+          console.log(lower+" "+upper)
+      let filtered = data.filter((element)=>{
+        if(element.price>=lower && element.price<=upper){
+          return true
+        }else{
+          return false
+        }
+      })
+      renderingdata(filtered)
+      
         })
+
+
+
+
+
+
+
+
+
+
+
+        
+
 
         let filtered = data.filter((item)=>{
                 if(item.category=="gifts"){
-                  return true
-                }else{
-                  return false
+                  arr.push(item)
                 }
               })
-             renderingdata(filtered)
+             console.log(arr)
+             renderingdata(arr)
+
+             
+  form.addEventListener("submit",(e)=>{
+    e.preventDefault()
+    let lower = +(min.value)
+    let upper = +(max.value)
+
+    console.log(lower+" "+upper)
+let filtered = arr.filter((element)=>{
+  if(element.price>=lower && element.price<=upper){
+    return true
+  }else{
+    return false
+  }
+})
+renderingdata(filtered)
+
+  })
 
              nikefilter.addEventListener("click",()=>{
-              let filtered = data.filter((ele)=>{
-                if(ele.brand=="nike" && ele.category=="gifts"){
+              let filtered = arr.filter((ele)=>{
+                if(ele.brand=="nike"){
                   return true
                 }else{
                   return false
@@ -60,8 +113,8 @@ async function mensdata(){
               renderingdata(filtered)
             })
             Adidasfilter.addEventListener("click",()=>{
-              let filtered = data.filter((ele)=>{
-                if(ele.brand=="adidas" && ele.category=="gifts"){
+              let filtered = arr.filter((ele)=>{
+                if(ele.brand=="adidas"){
                   return true
                 }else{
                   return false
@@ -70,8 +123,8 @@ async function mensdata(){
             renderingdata(filtered)
             })
             Louisfilter.addEventListener("click",()=>{
-              let filtered = data.filter((ele)=>{
-                if(ele.brand=="louis vuitton" && ele.category=="gifts"){
+              let filtered = arr.filter((ele)=>{
+                if(ele.brand=="louis vuitton" ){
                   return true
                 }else{
                   return false
@@ -80,8 +133,8 @@ async function mensdata(){
               renderingdata(filtered)
             })
             Cartierfilter.addEventListener("click",()=>{
-              let filtered = data.filter((ele)=>{
-                if(ele.brand=="cartier" && ele.category=="gifts"){
+              let filtered = arr.filter((ele)=>{
+                if(ele.brand=="cartier" ){
                   return true
                 }else{
                   return false
@@ -90,8 +143,8 @@ async function mensdata(){
             renderingdata(filtered)
             })
             Zarafilter.addEventListener("click",()=>{
-              let filtered = data.filter((ele)=>{
-                if(ele.brand=="zara" && ele.category=="gifts"){
+              let filtered = arr.filter((ele)=>{
+                if(ele.brand=="zara"){
                   return true
                 }else{
                   return false
@@ -99,8 +152,21 @@ async function mensdata(){
               })
             renderingdata(filtered)
             })
-       
+            
 
+            searchform.addEventListener("submit",(e)=>{
+              e.preventDefault()
+              let searchpara = searchform.search.value
+          console.log(searchpara)
+              let filtered1 = arr.filter((element)=>{
+                  if(element.name.toUpperCase().includes(searchpara.toUpperCase())===true){
+                      return true
+                  }else{
+                      return false
+                  }
+              })
+              renderingdata(filtered1)
+            })
 
     } catch (error) {
         console.log(error)

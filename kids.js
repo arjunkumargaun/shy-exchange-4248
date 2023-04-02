@@ -6,6 +6,28 @@ let Adidasfilter = document.querySelector("#Adidas")
 let Louisfilter = document.querySelector("#Louis")
 let Cartierfilter = document.querySelector("#Cartier")
 let Zarafilter = document.querySelector("#Zara")
+let lowtohigh = document.getElementById("lowtohigh")
+let hightolow = document.getElementById("hightolow")
+
+
+
+let arr = []
+let max = document.getElementById("max")
+let min = document.getElementById("min")
+let form = document.querySelector("#category-filter form")
+let clear1 = document.querySelector(".clear")
+max.value = priceslider.value
+
+
+priceslider.oninput = function(){
+  max.value = priceslider.value
+}
+clear1.addEventListener("click",()=>{
+  max.value = 50
+  min.value = 0
+  priceslider.value = 50
+})
+
 
 
 
@@ -39,6 +61,27 @@ async function mensdata(){
           })
           renderingdata(filtered1)
         })
+
+
+
+
+        
+  lowtohigh.addEventListener("click",()=>{
+    let filtered = data.sort((a,b)=>{
+      return a.price - b.price
+    })
+    renderingdata(filtered)
+  })
+  hightolow.addEventListener("click",()=>{
+    let filtered = data.sort((a,b)=>{
+      return b.price - a.price
+    })
+    renderingdata(filtered)
+  })
+
+
+
+
 
         let filtered = data.filter((item)=>{
                 if(item.category=="kids"){
