@@ -26,7 +26,8 @@ let bagpacks = document.querySelector("#bagpacks")
 
 let searchform = document.querySelector("#form")
 
-
+let lowtohigh = document.getElementById("lowtohigh")
+let hightolow = document.getElementById("hightolow")
 
 
 let viewcart = JSON.parse(localStorage.getItem("veiwproduct")) || []
@@ -81,7 +82,7 @@ async function fetchandremder(){
   searchform.addEventListener("submit",(e)=>{
     e.preventDefault()
     let searchpara = searchform.search.value
-console.log(searchpara)
+     console.log(searchpara)
     let filtered1 = data.filter((element)=>{
         if(element.name.toUpperCase().includes(searchpara.toUpperCase())===true){
             return true
@@ -94,6 +95,18 @@ console.log(searchpara)
 
 
 
+  lowtohigh.addEventListener("click",()=>{
+    let filtered = data.sort((a,b)=>{
+      return a.price - b.price
+    })
+    renderingdata(filtered)
+  })
+  hightolow.addEventListener("click",()=>{
+    let filtered = data.sort((a,b)=>{
+      return b.price - a.price
+    })
+    renderingdata(filtered)
+  })
 
 
 
@@ -116,7 +129,12 @@ mensfilter.addEventListener("click",()=>{
     }
   })
 renderingdata(filtered)
-
+lowtohigh.addEventListener("click",()=>{
+  let filtered = data.sort((a,b)=>{
+    return a.price - b.price
+  })
+  renderingdata(filtered)
+})
 
   
 })
