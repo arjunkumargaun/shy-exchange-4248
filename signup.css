@@ -14,6 +14,7 @@
     display: none;
 }
 nav{
+    top: 0;
 position: fixed; 
  z-index: 99;
 width: 100%;
@@ -603,13 +604,15 @@ display: none;
 
 
 body{
-    height: 100vh;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     background-color: rgba(245, 251, 252, 0.857);
 }
 .container{
+    margin-top: 80px;
     position: relative;
     max-width: 430px;
     width: 100%;
