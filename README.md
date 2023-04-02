@@ -1,5 +1,5 @@
 
-![Logo](https://iili.io/HN45Qd7.png)
+<p align="center"><img src="https://iili.io/HOCoCp2.png"></p>
 
 
 ## Blueberry.com
@@ -8,7 +8,7 @@ Discover a world of endless shopping possibilities at our e-commerce store! with
 
 ## Screenshots
 
-![App Screenshot](https://iili.io/HOByO8u.jpg)
+![App Screenshot](https://iili.io/HOCndUx.jpg)
 
 
 ## Authors
@@ -18,8 +18,9 @@ Discover a world of endless shopping possibilities at our e-commerce store! with
 - [Ravi Sharma](https://github.com/RaviSharma7877)
 
 ## 🛠 Description
-- E-commerse site in the team responsible for handling both User Site And Admin Site (frontend). 
-Tech Stack: Javascript, LocalStarage, Api, Css, Html
+- E-commerse site in the team responsible for handling both User Site And Admin Site (frontend)
+## Tech Stack: 
+Javascript, LocalStarage, Api, Css, Html
  
 ## Features
 - Our website, built with the power of HTML, CSS, and JavaScript! Our team of web developers has worked tirelessly to create a seamless user experience for you. From the layout and design to the functionality and interactivity.
