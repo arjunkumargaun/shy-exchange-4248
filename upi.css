@@ -252,7 +252,6 @@ top: 10px;
 }
 /* ***************************** footer footer *********************** */
 footer{
-margin-top: 50px;
 padding: 30px 20px;
 width: 100%;
 background-color: #232F3E;
@@ -606,6 +605,7 @@ footer #footer-child{
   justify-content: center;
   align-items: center;
   padding:25px;
+  height: 100%;
   min-height: 100vh;
   background-color: rgb(70, 87, 87);
 }
