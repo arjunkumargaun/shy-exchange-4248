@@ -191,10 +191,10 @@ nav .wrapper {
 #child2 {
   width: 65%;
   position: relative;
-  left: 20px;
+  left: 6px;
 }
 #pr-name {
-  font-size: x-large;
+  font-size: 18px;
   margin-bottom: 10px;
 }
 #pr-name + P {
@@ -367,11 +367,38 @@ input[type="radio"] {
   #cart-body {
     flex-direction: column;
   }
+  #pr-name{
+  font-size: 15px;
+  }
   #for-product,
   #cost-section {
     width: 100%;
     margin-bottom: 20px;
   }
+  #remove{
+  margin-left: 10px;
+  }
+}
+
+.alert {
+  background-color: teal;
+  width: max-content;
+  padding: 20px;
+  color: white;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 7;
+  font-weight: 600;
+  letter-spacing: 2px;
+  display: none;
+  text-align: center;
+  border-radius: 4px;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 /* footer  */
