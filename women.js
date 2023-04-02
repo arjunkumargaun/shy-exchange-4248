@@ -10,7 +10,7 @@ let Zarafilter = document.querySelector("#Zara")
 let max = document.getElementById("max")
 let min = document.getElementById("min")
 let form = document.querySelector("#category-filter form")
-
+let countspan=document.getElementById("countspan");
 
 
 
@@ -46,6 +46,7 @@ clear1.addEventListener("click",()=>{
 window.addEventListener("load",()=>{
     mensdata()
 })
+countspan.innerHTML = addtocartarr.length
 
 async function mensdata(){
     try {
@@ -237,6 +238,7 @@ function renderingdata(data){
           addtocartarr.push(element.id)
           console.log(addtocartarr)
           localStorage.setItem("addtocart",JSON.stringify(addtocartarr))
+          countspan.innerHTML = addtocartarr.length
       })
 
       let buytbtn = document.createElement("button")

@@ -5,6 +5,7 @@ let number = document.getElementById("number")
 let month = document.getElementById("month")
 let year = document.getElementById("year")
 let cvv = document.getElementById("cvv")
+let checkout = document.getElementById("checkout")
 
 span.innerHTML = addressarr[0].name
 

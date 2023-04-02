@@ -8,7 +8,7 @@ let Cartierfilter = document.querySelector("#Cartier")
 let Zarafilter = document.querySelector("#Zara")
 let lowtohigh = document.getElementById("lowtohigh")
 let hightolow = document.getElementById("hightolow")
-
+let countspan=document.getElementById("countspan");
 
 
 let arr = []
@@ -40,7 +40,7 @@ let addtocartarr = JSON.parse(localStorage.getItem("addtocart")) || []
 window.addEventListener("load",()=>{
     mensdata()
 })
-
+countspan.innerHTML = addtocartarr.length
 async function mensdata(){
     try {
         let res = await fetch(api)
@@ -200,6 +200,7 @@ function renderingdata(data){
           addtocartarr.push(element.id)
           console.log(addtocartarr)
           localStorage.setItem("addtocart",JSON.stringify(addtocartarr))
+          countspan.innerHTML = addtocartarr.length
       })
 
       let buytbtn = document.createElement("button")

@@ -4,6 +4,7 @@ let mendec=document.getElementById("men_div");
 let womendec=document.getElementById("women_div");
 let kidsdec=document.getElementById("kids_div");
 let giftsdec=document.getElementById("gift_div");
+let countspan=document.getElementById("countspan");
 let URL=`https://63c9170d320a0c4c9540575f.mockapi.io/products`;
 let giftArray=[];
 let giftdec=document.getElementById("gift_div");
@@ -12,6 +13,17 @@ let menArray=[];
 let womenArray=[];
 let kidsArray=[];
 let bagsArray=[];
+
+
+
+
+let viewcart = JSON.parse(localStorage.getItem("veiwproduct")) || []
+
+let addtocartarr = JSON.parse(localStorage.getItem("addtocart")) || []
+
+
+
+
 window.addEventListener("load",(e)=>{
     e.preventDefault();
     
@@ -33,7 +45,7 @@ window.addEventListener("load",(e)=>{
     }
     getdata()
 })
-
+countspan.innerHTML = addtocartarr.length
 // *************************************** women******************
 
 function womendata(data){
@@ -98,6 +110,7 @@ function renderingdata1(data){
           addtocartarr.push(element.id)
           console.log(addtocartarr)
           localStorage.setItem("addtocart",JSON.stringify(addtocartarr))
+          countspan.innerHTML = addtocartarr.length
       })
 
       let buytbtn = document.createElement("button")
