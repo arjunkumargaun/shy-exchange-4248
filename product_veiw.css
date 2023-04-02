@@ -800,21 +800,23 @@ margin-bottom: 10px;
   height: 2rem;
   object-fit: contain;
   border-radius: 100%;
+  margin-bottom: 10px;
 }
 .consumer>:nth-child(1) img+div>:nth-child(1){
 font-size: 13px;
 font-weight: 600;
 }
 .consumer>:nth-child(1) img+div>:nth-child(1)~i{
-font-size: 13px;
+font-size: 12px;
 margin: 0;
 position: relative;
-bottom: 10px;
+bottom:4px;
 }
 .consumer>:nth-child(1)+p{
 font-size: 13px;
 position: relative;
 bottom: 10px;
+margin-bottom: 5px;
 }
 
 @media screen and (max-width: 1200px) {

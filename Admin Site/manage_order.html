@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage page of BlueBerry</title>
     <link rel="shortcut icon" href="https://iili.io/HN45Qd7.png" type="image/x-icon">
-    <link rel="stylesheet" href="./Styling/admin.css">
+    <link rel="stylesheet" href="./Styling/manage_order.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-
-    <title>Admin Dashboard Panel</title>
 </head>
 
 <body>
@@ -24,9 +23,9 @@
 
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="./all_Product.html">
+                <li><a href="./admin.html">
                         <i class="uil uil-estate"></i>
-                        <span class="link-name">All Products</span>
+                        <span class="link-name">Admin Page</span>
                     </a></li>
                 <li><a href="./Add_Product.html">
                         <i class="uil uil-files-landscapes"></i>
@@ -36,9 +35,9 @@
                         <i class="uil uil-chart"></i>
                         <span class="link-name">Update Product</span>
                     </a></li>
-                <li><a href="./manage_order.html">
+                <li><a href="./all_Product.html">
                         <i class="uil uil-thumbs-up"></i>
-                        <span class="link-name">Manage Order</span>
+                        <span class="link-name">All Products</span>
                     </a></li>
                 <!-- <li><a href="#">
                         <i class="uil uil-comments"></i>
@@ -63,10 +62,10 @@
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
 
-            <!-- <div class="search-box">
+            <div class="search-box">
                 <i class="uil uil-search"></i>
-                <input type="text" placeholder="Search here...">
-            </div> -->
+                <input type="text" placeholder="Search here..." id="search">
+            </div>
 
             <!--<img src="images/profile.jpg" alt="">-->
         </div>
@@ -74,43 +73,53 @@
         <div class="dash-content">
             <div class="overview">
                 <div class="title">
-                    <i class="uil uil-tachometer-fast-alt"></i>
-                    <span class="text">Dashboard</span>
-                </div>
+                   <div>
+                   <i class="uil uil-tachometer-fast-alt"></i>
+                    <span class="text">Order Truck</span>
+                   </div>
+                  
+                    <select id="filter">
+                        <option value="">Select Category</option>
+                        <option value="kids">Kids Category</option>
+                        <option value="gifts">All Gifts</option>
+                        <option value="mens">Mens</option>
+                        <option value="women">Women</option>
+                        <option value="bags">Bags</option>
+                        <option value="womens top">Womens top</option>
+                        <option value="womens jeans">Womens jeans</option>
+                        <option value="homedecore">Homedecorate Category</option>
+                    </select>
+                </div> 
 
-                <div class="boxes">
-                    <div class="box box1">
-                    
-                        <i class="uil uil-chart"></i>
-                        <span class="text">Total Product</span>
-                        <span class="number" id="product-num"></span>
-                    </div>
-                    <div class="box box2">
-                        <i class="uil uil-files-landscapes"></i>
-                        <span class="text">Total Order</span>
-                        <span class="number">20,120</span>
-                    </div>
-                    <div class="box box3">
-                        <i class="uil uil-comments"></i>
-                        <span class="text">Total Revanue</span>
-                        <span class="number">10,120</span>
-                    </div>
-                </div>
-            </div>
 
-            <div class="activity">
-                <div class="title">
-                    <i class="uil uil-clock-three"></i>
-                    <span class="text">Recent Activity</span>
-                </div>
+           </div>
 
-                <div class="activity-data">
+            <div id="product_show">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User Name</th>
+                            <th>All Product</th>
+                            <th>Total amount</th>
+                            <th>Proceed to E-kert</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- data should append here -->
+                    </tbody>
+                </table>
+            </div> 
 
-                </div>
     </section>
- <div class="alert">Wrong Passcode</div>
 
+        <div id="sure">
+        <p>Are You Sure ?</p>
+        <div>
+            <button id="yes">Yes</button>
+            <button id="no">No</button>
+        </div>
+    </div>
 </body>
-<script src="./Script file/admin.js"></script>
+<script src="./Script file/manage_order.js"></script>
 
 </html>
