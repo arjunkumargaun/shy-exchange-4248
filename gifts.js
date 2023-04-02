@@ -178,63 +178,66 @@ renderingdata(filtered)
 function renderingdata(data){
   mainbody.innerHTML = ""
   data.forEach((element,index)=>{
-      let div = document.createElement("div")
-      div.classList.add("card")
+    let div = document.createElement("div")
+    div.classList.add("card")
 
-      let div2 = document.createElement("div")
-      div2.classList.add("img_div")
-      div2.addEventListener("click",()=>{
-          viewcart = [element.id]
-          localStorage.setItem("veiwproduct",JSON.stringify(viewcart))
-          window.location.assign("product_vei.html")
-      })
+    let div2 = document.createElement("div")
+    div2.classList.add("img_div")
+    div2.addEventListener("click",()=>{
+        viewcart = [element.id]
+        localStorage.setItem("veiwproduct",JSON.stringify(viewcart))
+        window.location.assign("product_vei.html")
+    })
 
-      let img = document.createElement("img")
-      img.setAttribute("src",element.src)
-      
+    let img = document.createElement("img")
+    img.setAttribute("src",element.src)
+    
 
-      let div3 = document.createElement("div")
-      div3.classList.add("desc")
-
-
-      let Name = document.createElement("h2")
-      Name.innerText = element.name
-
-      
-      let buttondiv = document.createElement("div")
-      buttondiv.classList.add("button-div")
-      
-      
-      let Category = document.createElement("p")
-      Category.innerText = element.category
-
-      let brand = document.createElement("p")
-      brand.innerText = element.brand
-      
-      let Price = document.createElement("p")
-      Price.innerText = element.price
-
-      let product_badge = document.createElement("p")
-      product_badge.innerText = element.product_badge
+    let div3 = document.createElement("div")
+    div3.classList.add("desc")
 
 
-      let addtocartbtn = document.createElement("button")
-      addtocartbtn.innerHTML = "Add To Cart"
-      addtocartbtn.addEventListener("click",()=>{
-          addtocartarr.push(element.id)
-          console.log(addtocartarr)
-          localStorage.setItem("addtocart",JSON.stringify(addtocartarr))
-          countspan.innerHTML = addtocartarr.length
-      })
+    let Name = document.createElement("h2")
+    Name.innerText = element.name
+    
+    let Category = document.createElement("p")
+    Category.innerText = element.category
 
-      let buytbtn = document.createElement("button")
-      buytbtn.innerHTML = "Buy"
-      
-      
-      
-      div3.append(Name, Category,brand, Price,product_badge,addtocartbtn, buytbtn)
-      div2.append(img)
-      div.append(div2,div3,buttondiv)
-      mainbody.append(div)
-      })
+    let brand = document.createElement("p")
+    brand.innerText = element.brand
+    
+    let Price = document.createElement("p")
+    Price.innerText = element.price
+
+    let product_badge = document.createElement("p")
+    product_badge.innerText = element.product_badge
+
+
+
+    let buttondiv = document.createElement("div")
+    buttondiv.classList.add("button-div")
+
+
+    let addtocartbtn = document.createElement("button")
+
+    addtocartbtn.innerHTML = "Add To Cart";
+
+    addtocartbtn.addEventListener("click",()=>{
+        addtocartarr.push(element.id)
+        console.log(addtocartarr)
+        localStorage.setItem("addtocart",JSON.stringify(addtocartarr))
+        countspan.innerHTML = addtocartarr.length
+    })
+
+    let buytbtn = document.createElement("button")
+    buytbtn.innerHTML = "Buy"
+    
+    
+    buttondiv.append(addtocartbtn,buytbtn);
+    div3.append(Name, Category,brand, Price,product_badge)
+    div3.append(buttondiv);
+    div2.append(img)
+    div.append(div2,div3)
+    mainbody.append(div)
+    })
   }
