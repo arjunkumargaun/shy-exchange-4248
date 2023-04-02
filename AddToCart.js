@@ -3,10 +3,12 @@ let appending_div = document.querySelector("#for-product"); // in this div , eve
 let amount_show = document.querySelector("#totalAppend");
 let total_amount_show = document.querySelector("#total-Amount-Append");
 let checkoutBtn = document.querySelector("#Checkout");
-
+let positive_amount;
+let alerts = document.querySelector(".alert");
+let radioBtn = document.getElementsByName("order");
 let api_data = [];
-// JSON.parse(localStorage.getItem("addtocart"))
-let addtocart_data = [23, 16];
+
+let addtocart_data = JSON.parse(localStorage.getItem("addtocart"));
 if (addtocart_data == null) {
   addtocart_data = [];
 }
@@ -19,7 +21,7 @@ window.addEventListener("load", () => {
     })
     .then((data) => {
       api_data = data;
-      excute_func(api_data, addtocart_data);
+      excute_func(api_data,addtocart_data);
     });
 });
 
@@ -28,6 +30,7 @@ function excute_func(apiData, cartData) {
   let totalAmount = 0;
   // geting unique data
   let uniqueElement = new Set(cartData);
+
   let data = apiData.filter((element) => {
     let flag = false;
     uniqueElement.forEach((ele) => {
@@ -90,21 +93,35 @@ function excute_func(apiData, cartData) {
     crossIcon.innerHTML = `<i class="fa-sharp fa-solid fa-trash"></i>`;
 
     // some functionality over element
-    crossIcon.addEventListener("click", () => {
-      uniqueElement.delete(ele.id);
+    crossIcon.addEventListener("click", () => {  
+
+     uniqueElement.forEach((idd)=>{
+     if (idd==ele.id) {
+      uniqueElement.delete(idd);
+     }
+     })
       addtocart_data = [...uniqueElement];
       localStorage.setItem("addtocart", JSON.stringify(addtocart_data));
-      excute_func(apiData, addtocart_data);
+      excute_func(apiData, addtocart_data)
+   
+      alerts.innerHTML = "Item Deleted";
+      alerts.style.display = "block";
+      setTimeout(() => {
+        alerts.style.display = "none";
+      }, 500);
+
+
     });
 
     decrementBtn.addEventListener("click", () => {
-      if (number !== 0) {
-        totalAmount -= ele.price;
-      }
       number--;
-      displayNumber.textContent = number;
+      if (number >= 0 || number == 0) {
+        totalAmount -= Number(ele.price);
+      }
+      if (number <= 0) number = 0;
 
-      if (number == 0) number = 1;
+      displayNumber.textContent = number;
+      positive_amount = totalAmount; // store outside for verify
       amount_show.innerHTML = totalAmount;
       total_amount_show.innerHTML = totalAmount;
     });
@@ -112,7 +129,8 @@ function excute_func(apiData, cartData) {
     IncrementBtn.addEventListener("click", () => {
       number++;
       displayNumber.textContent = number;
-      totalAmount += ele.price;
+      totalAmount += Number(ele.price);
+      positive_amount = totalAmount; // store outside for verify
       amount_show.innerHTML = totalAmount;
       total_amount_show.innerHTML = totalAmount;
     });
@@ -128,12 +146,40 @@ function excute_func(apiData, cartData) {
     appending_div.append(main);
 
     totalAmount += Number(ele.price);
+    positive_amount = totalAmount;
   });
 
   // update amount to DOM
   amount_show.innerHTML = totalAmount;
   total_amount_show.innerHTML = totalAmount;
 }
-checkoutBtn.addEventListener("click", () => {
- alert();
+
+//checkout button here
+let radio_flag = false;
+
+for (let index = 0; index < radioBtn.length; index++) {
+  radioBtn[index].addEventListener("click", () => {
+    radio_flag = true;
+  });
+}
+checkoutBtn.addEventListener("click", function check() {
+  if (positive_amount > 0 && radio_flag == true) {
+    localStorage.setItem("PayableAmount", positive_amount);
+    window.location.assign("AddToCart.js");
+  }
+  if (radio_flag == false) {
+    alerts.innerHTML = "Select option !";
+    alerts.style.display = "block";
+    setTimeout(() => {
+      alerts.style.display = "none";
+    }, 500);
+  } else {
+    alerts.innerHTML = "Your Cart is Empty";
+    alerts.style.display = "block";
+    setTimeout(() => {
+      alerts.style.display = "none";
+    }, 500);
+  }
 });
+
+
