@@ -5,6 +5,10 @@ let address1 = document.querySelector("#address")
 let city1 = document.querySelector("#city")
 let state1 = document.querySelector("#state")
 let pincode1 = document.querySelector("#pincode")
+let phone = document.querySelector("#phone")
+let btn = document.getElementsByClassName("submit-btn")
+
+
 
 
 let addressarr = JSON.parse(localStorage.getItem("addressdetail")) || []
@@ -23,6 +27,24 @@ function addressdata(){
     let pincode = pincode1.value
 
 
+    if(name == ""){
+        alert("fill name")
+    }
+    if(email == ""){
+        alert("fill email")
+    }
+    if(address == ""){
+        alert("fill address")
+    }
+    if(city == ""){
+        alert("fill city")
+    }
+    if(state == ""){
+        alert("fill state")
+    }
+    if(pincode == ""){
+        alert("fill pincode")
+    }
 
     let formdata = [{
         name : name,
@@ -34,5 +56,6 @@ function addressdata(){
     }]
     addressarr = formdata
     localStorage.setItem("addressdetail",JSON.stringify(addressarr))
+    window.location.assign("pay.html")
     
 }

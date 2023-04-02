@@ -31,7 +31,7 @@ btn.addEventListener("click",()=>{
         if(logcheck.checked){
             message.innerText = "Password match"
         message.style.color = "green"
-        window.location.assign("homepage.html")
+        window.location.assign("index.html")
         alert("Login successfull")
         }else{
             pwfield.value=""
@@ -45,8 +45,4 @@ btn.addEventListener("click",()=>{
         alert("Check password")
     }
 })
-    
-    
-
-        
-   
+  
