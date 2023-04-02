@@ -50,10 +50,11 @@ function test(){
     }
     if(password.value===pwfield.value){
         if(logcheck.checked){
-            dataarr.push(obj)
+            dataarr = [obj]
         localStorage.setItem("data",JSON.stringify(dataarr))
-        window.location.assign("index.html")
+        
         alert("Signup Successful pls Login")
+        window.location.assign("login.html")
         }else{
             alert("Checkbox is Empty")
         }

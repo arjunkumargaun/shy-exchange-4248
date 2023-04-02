@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="cardpaymentpage.css">
+    <link rel="stylesheet" href="upi.css">
 
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -273,6 +273,8 @@
             <div class="col">
 
                 <h3 class="title">payment</h3>
+                              
+                <p>Thankyou  mr. <span id="span"></span> your payment is:- <span id="payable"></span></p>
 
                 <div class="inputBox">
                     <span>UPI accepted :</span>
@@ -284,7 +286,7 @@
                 </div>
                 <div class="inputBox">
                     <span>UPI id :</span>
-                    <input type="gamil" placeholder="UPI number">
+                    <input type="gamil" placeholder="UPI number" id="upi">
                 </div>
                
                 </div>
@@ -297,8 +299,9 @@
     </form>
 
 </div>    
-    
+<div class="alert">Order Place Successfully</div>
 </body>
+<script src="upi.js"></script>
 <footer>
   <div id="footer-child">
       <div>

@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- custom css file link  -->
-    
-    <link rel="stylesheet" href="cardpaymentpage.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="paymentpage.css">
 
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -17,9 +15,11 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css'><link rel="stylesheet" href="./style.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js'></script>
+    <link rel="stylesheet" href="pay.css">
 
 
 </head>
+
 
 <header>
     <nav>
@@ -264,63 +264,31 @@
       </nav>
 </header>
 
+
+
 <body>
-
-<div class="container">
-
-    <form action="">
-
-        <div class="row">
-
-            
-
-            <div class="col">
-
-                <h3 class="title">payment</h3>                
-                <p>Thankyou mr. <span id="span"></span></p>
-                
-
-                <div class="inputBox">
-                    <span>cards accepted :</span>
-                    <img src="images/card_img.png" alt="">
-                </div>
-                <div class="inputBox">
-                    <span>name on card :</span>
-                    <input type="text" placeholder="mr. john deo" id="name">
-                </div>
-                <div class="inputBox">
-                    <span>credit card number :</span>
-                    <input type="number" placeholder="1111-2222-3333-4444" id="number" minlength="8" maxlength="16">
-                </div>
-                <div class="inputBox">
-                    <span>exp month :</span>
-                    <input type="text" placeholder="january" id="month">
-
-                </div>
-
-                <div class="flex">
-                    <div class="inputBox">
-                        <span>exp year :</span>
-                        <input type="number" placeholder="2022" id="year" maxlength="4">
-                    </div>
-                    <div class="inputBox">
-                        <span>CVV :</span>
-                        <input type="text" placeholder="123" id="cvv" maxlength="3">
-
-                    </div>
-                </div>
+    <div class="container">
+        <div class="details">
+           
+            <div class="PaymentBycard">
+                <a href="cardpayment.html">Payment By card</a>
+            </div>
+            <div class="PaymentByupi">
+                <a href="upipayment.html">Payment By UPI</a>
 
             </div>
-    
+            <div class="COD">
+                <a href="" id="cod">Case on Delivery</a>
+            </div>
         </div>
-
-        <input type="submit" value="proceed to checkout" class="submit-btn" id="checkout">
-
-    </form>
-
-</div>    
-<div class="alert">Order Place Successfully</div>
+        <div class="buttons">
+            <a href="index.html"><button>Back to Home</button></a>
+            <a href="product_vei.HTML"><button>Back to Cart</button></a>
+        </div>
+    </div>
+    <div class="alert">Order Place Successfully</div>
 </body>
+
 <footer>
   <div id="footer-child">
       <div>
@@ -369,5 +337,5 @@
       </div>
   </div>
 </footer>
-<script src="cardpayment.js"></script>
+<script src="pay.js"></script>
 </html>

@@ -1,41 +1,34 @@
+let payable = document.getElementById("payable")
 let addressarr = JSON.parse(localStorage.getItem("addressdetail")) || []
+let amount = JSON.parse(localStorage.getItem("PayableAmount")) || []
 let span = document.getElementById("span")
-let name = document.getElementById("name")
-let number = document.getElementById("number")
-let month = document.getElementById("month")
-let year = document.getElementById("year")
-let cvv = document.getElementById("cvv")
-let alert1 = document.querySelector(".alert")
+let upi = document.getElementById("upi")
 let checkout = document.getElementById("checkout")
+let alert1 = document.querySelector(".alert")
+let COD = document.querySelector("COD")
 
 span.innerHTML = addressarr[0].name
-
-
+payable.innerHTML = amount
+span.style.fontWeight = "bold"
+span.style.textDecoration = "underline"
+payable.style.fontWeight = "bold"
+payable.style.textDecoration = "underline"
 
 let cardarr = JSON.parse(localStorage.getItem("carddetail"))
 
 
 
-form.addEventListener("submit",(e)=>{
+COD.addEventListener("click",(e)=>{
     e.preventDefault()
     carddata()
 })
 function carddata(){
-    let name = name.value
-    let number = number.value
-    let month = month.value
-    let year = year.value
-    let cvv = cvv.value
+
 
 
 
     let formdata = [{
-        name : name,
-        number : number,
-        month : month,
-        city : city,
-        year : year,
-        cvv : cvv
+        name : upi
     }]
     cardarr = formdata
     localStorage.setItem("carddetail",JSON.stringify(cardarr))
@@ -46,4 +39,3 @@ function carddata(){
     },1000)
     
 }
-

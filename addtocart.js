@@ -24,7 +24,7 @@ window.addEventListener("load", () => {
       excute_func(api_data,addtocart_data);
     });
 });
-
+let arr = []
 // this is the funtion responsible for excuting
 function excute_func(apiData, cartData) {
   let totalAmount = 0;
@@ -42,6 +42,9 @@ function excute_func(apiData, cartData) {
   }); // filter data;
 
   appending_div.innerHTML = "";
+
+let obj = {}
+
 
   data.forEach((ele) => {
     // creating here
@@ -113,7 +116,9 @@ function excute_func(apiData, cartData) {
 
     });
 
+    let arr1 = []
     decrementBtn.addEventListener("click", () => {
+      
       number--;
       if (number > 0 ) {
         totalAmount -= Number(ele.price);
@@ -124,15 +129,29 @@ function excute_func(apiData, cartData) {
       positive_amount = totalAmount; // store outside for verify
       amount_show.innerHTML = totalAmount;
       total_amount_show.innerHTML = totalAmount;
+      obj[ele.name] = number
+      // console.log(obj)
+      arr1 = obj
+      console.log(arr1)
+      arr.push(arr1)
+      localStorage.setItem("productname",JSON.stringify(arr))
     });
 
     IncrementBtn.addEventListener("click", () => {
+      
       number++;
       displayNumber.textContent = number;
       totalAmount += Number(ele.price);
       positive_amount = totalAmount; // store outside for verify
       amount_show.innerHTML = totalAmount;
       total_amount_show.innerHTML = totalAmount;
+      obj[ele.name] = number
+      // console.log(obj)
+      arr.push(obj)
+      arr1 = obj
+      console.log(arr1)
+      arr.push(arr1)
+      localStorage.setItem("productname",JSON.stringify(arr))
     });
     // some functionality over element
 
