@@ -16,13 +16,6 @@ background: #242526;
 
 
 
-
-
-
-
-
-
-
 #bottom-nav{
   padding-top: 30px;
   /* border: 3px solid red; */
@@ -459,6 +452,18 @@ margin-top: 10px;
   text-decoration: none;
   padding: 8px 12px;
   border-radius: 5px;
+}
+
+#copyright{
+  width: 100%;
+  height: auto;
+  background-color: #242526;
+  text-align: center;
+  padding: 20px 20px;
+}
+#copyright > a{
+  text-decoration: none;
+  color: white;
 }
 /************************************** media query media query ***********************************/
 /************************************** media query media query ***********************************/
