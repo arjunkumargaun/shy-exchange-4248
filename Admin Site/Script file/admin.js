@@ -85,7 +85,7 @@ function appending(data) {
     // user_name.textContent = user_names;
     all_product.textContent = element.name;
     total_amount.textContent = element.price;
-    E_kert.textContent = "Handover to Logistic";
+    E_kert.textContent = "Handover Done...";
     E_kert.className = "Kert";
     E_kert.addEventListener("click", () => {
       sure.style.display = "block";
