@@ -11,11 +11,13 @@ let location1 = document.getElementById("location1")
 console.log(data[0])
 
 
-name1.innerHTML = data[0].name
+name1.innerHTML = data[0].name+" "+data[0].lastname
+
 
 
 title.value = data[0].name
 email.value = data[0].email
+lastname.value = data[0].lastname
 
 btn.addEventListener("click",()=>{
     let userdata = [{

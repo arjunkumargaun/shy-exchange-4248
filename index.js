@@ -110,8 +110,9 @@ function renderingdata1(data){
 
       addtocartbtn.addEventListener("click",()=>{
           addtocartarr.push(element.id)
+          let added = new Set(addtocartarr)
           console.log(addtocartarr)
-          localStorage.setItem("addtocart",JSON.stringify(addtocartarr))
+          localStorage.setItem("addtocart",JSON.stringify(added))
           countspan.innerHTML = addtocartarr.length
       })
 
