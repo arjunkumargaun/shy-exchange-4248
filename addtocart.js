@@ -185,9 +185,10 @@ checkoutBtn.addEventListener("click", function check() {
   if (positive_amount > 0 && radio_flag == true) {
     localStorage.setItem("PayableAmount", positive_amount);
     window.location.assign("paymentpage.html");
+  
   }
   if (radio_flag == false) {
-    alerts.innerHTML = "Select option !";
+    alerts.innerHTML = "Select option Please !";
     alerts.style.display = "block";
     setTimeout(() => {
       alerts.style.display = "none";

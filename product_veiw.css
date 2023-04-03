@@ -209,7 +209,7 @@ top: 10px;
 #bottom-nav >div:nth-child(1) img{
   width: 80px;
   height: 80px;
-
+  
 }
 
 
@@ -605,7 +605,7 @@ footer #footer-child{
   align-items: center;
   width: 90%;
   margin: auto;
-
+ padding-top: 70px;
 }
 #image {
   width: 50%;
