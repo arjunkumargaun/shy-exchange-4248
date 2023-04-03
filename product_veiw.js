@@ -67,7 +67,7 @@ function excute(responseNumber, fetchData) {
 
   price.textContent = data.price;
   availity.innerHTML = "in stock";
-  condition.textContent = `${data.badge ?? New}`;
+  condition.textContent = `${data.badge ?? "New"}`;
   brand.textContent = data.brand ?? "burberry";
   quantity.textContent = "1";
   addToCardButton.textContent = "Add to cart";
