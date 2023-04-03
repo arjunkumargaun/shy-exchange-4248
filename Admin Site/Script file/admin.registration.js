@@ -111,8 +111,8 @@ e.preventDefault();
       password: password.value,
     };
     registration(data);
-    localStorage.setItem("registration", true);
-    window.location="./admin.login.html"
+   
+    
   }
 });
 
@@ -126,7 +126,8 @@ async function registration(details) {
       body: JSON.stringify(details),
     });
     let data = await res.json();
-  
+    localStorage.setItem("registration", true);
+    window.location="./admin.login.html"
   } catch (error) {
     console.log(error);
   }
