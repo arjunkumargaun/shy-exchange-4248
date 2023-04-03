@@ -1,21 +1,31 @@
 let mainbody = document.querySelector("#product-container")
 let api = 'https://63c9170d320a0c4c9540575f.mockapi.io/products'
 let searchform = document.querySelector("#form")
+let clear1 = document.querySelector(".clear")
 let nikefilter = document.querySelector("#nike")
 let Adidasfilter = document.querySelector("#Adidas")
 let Louisfilter = document.querySelector("#Louis")
 let Cartierfilter = document.querySelector("#Cartier")
 let Zarafilter = document.querySelector("#Zara")
-let lowtohigh = document.getElementById("lowtohigh")
-let hightolow = document.getElementById("hightolow")
-let countspan=document.getElementById("countspan");
-
-
-let arr = []
 let max = document.getElementById("max")
 let min = document.getElementById("min")
 let form = document.querySelector("#category-filter form")
-let clear1 = document.querySelector(".clear")
+let countspan=document.getElementById("countspan");
+
+
+
+let viewcart = JSON.parse(localStorage.getItem("veiwproduct")) || []
+
+let addtocartarr = JSON.parse(localStorage.getItem("addtocart")) || []
+
+
+
+let arr = []
+
+
+
+
+
 max.value = priceslider.value
 
 
@@ -30,9 +40,6 @@ clear1.addEventListener("click",()=>{
 
 
 
-let viewcart = JSON.parse(localStorage.getItem("veiwproduct")) || []
-
-let addtocartarr = JSON.parse(localStorage.getItem("addtocart")) || []
 
 
 
@@ -40,10 +47,17 @@ window.addEventListener("load",()=>{
     mensdata()
 })
 countspan.innerHTML = addtocartarr.length
+
 async function mensdata(){
     try {
         let res = await fetch(api)
         let data = await res.json()
+
+        
+        
+
+
+
 
         form.addEventListener("submit",(e)=>{
           e.preventDefault()
@@ -166,6 +180,7 @@ renderingdata(filtered)
               })
               renderingdata(filtered1)
             })
+       
 
 
     } catch (error) {

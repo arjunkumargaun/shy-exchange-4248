@@ -275,7 +275,6 @@ top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
- 
 }
 #bottom-nav >div:nth-child(2) form input{
   padding: 12px 18px;
@@ -469,7 +468,7 @@ margin: 0;
 }
 .search-box form input{
 border: none;
-margin: 3px 1px 3px 0px;
+margin: 3px 1px 3px 15px;
 font-size: 17px;
 outline: none;
 width: 83%;
@@ -1028,5 +1027,4 @@ font-variation-settings:
         
       }
 
-    
     }
