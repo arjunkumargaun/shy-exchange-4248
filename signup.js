@@ -4,6 +4,7 @@ let pwfield = document.querySelector(".conpassword")
 let password = document.querySelector(".password")
 let message  =document.querySelector("#message")
 let name1  = document.getElementById("name")
+let lastname  = document.getElementById("lastname")
 let email1 = document.getElementById("email")
 let logcheck = document.getElementById("logcheck")
 
@@ -44,6 +45,7 @@ function test(){
     checkpassword()
     let obj = {
         name: name1.value,
+        lastname: lastname.value,
         email:email1.value,
         password : password.value,
         conpassword : pwfield.value
