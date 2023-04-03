@@ -460,3 +460,29 @@ text-decoration: none;
   padding-left: 40px;
   padding-right: 40px;
 }
+#product_show{
+width: 100%;
+}
+table{
+width: 100%;
+}
+table,
+td,
+th {
+  border: 1px solid #ddd;
+  text-align: left;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+#product_show table thead {
+  border: 1px solid grey;
+  font-weight: 600;
+  color: #0b3cc1;
+}
+th,
+td {
+  padding: 15px;
+  font-size: 15px;
+}

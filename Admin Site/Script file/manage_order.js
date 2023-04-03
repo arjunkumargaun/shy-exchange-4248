@@ -25,10 +25,16 @@ let nope = document.querySelector("#no");
 
 let user_names =localStorage.getItem("userdata");;
 let item = JSON.parse(localStorage.getItem("addtocart"));
-let total_amounts = localStorage.getIte("payble_Amount");
+let total_amounts = localStorage.getItem("payble_Amount");
 if (item == null) {
   item = [];
 }
+
+let recent_data=JSON.parse(localStorage.getItem('recent'));
+if (recent_data==null) {
+  recent_data=[];
+}
+
 
 window.addEventListener("load", () => {
   if (admin_check == null) {
@@ -77,19 +83,21 @@ function appending(fetched_data, items) {
 
   data.forEach((element) => {
     let product_tr = document.createElement("tr");
-    let user_name = document.createElement("td");
+    // let user_name = document.createElement("td");
     let all_product = document.createElement("td");
     let total_amount = document.createElement("td");
     let E_kert = document.createElement("td");
 
-    user_name.textContent = user_names;
+    // user_name.textContent = user_names;
     all_product.textContent = element.name;
-    total_amount.textContent = total_amounts;
+    total_amount.textContent = element.price;
     E_kert.textContent = "Handover to Logistic";
     E_kert.className = "Kert";
     E_kert.addEventListener("click", () => {
       sure.style.display = "block";
       yes.addEventListener("click", () => {
+        recent_data.push(element);
+        localStorage.setItem('recent',JSON.stringify(recent_data))
         sure.style.display = "none";
         window.location = "./admin.html";
       });
@@ -98,7 +106,7 @@ function appending(fetched_data, items) {
       });
     });
 
-    product_tr.append(user_name, all_product, total_amount, E_kert);
+    product_tr.append(all_product, total_amount, E_kert);
     tbody.append(product_tr);
   });
 }
