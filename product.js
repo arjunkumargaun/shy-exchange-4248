@@ -24,6 +24,7 @@ let bagpacks = document.querySelector("#bagpacks")
 
 
 
+
 let searchform = document.querySelector("#form")
 
 let lowtohigh = document.getElementById("lowtohigh")
@@ -33,18 +34,6 @@ let hightolow = document.getElementById("hightolow")
 let viewcart = JSON.parse(localStorage.getItem("veiwproduct")) || []
 
 let addtocartarr = JSON.parse(localStorage.getItem("addtocart")) || []
-
-
-
-
-
-  // console.log(addtocartarr)
-
-
-
-
-
-
 
 
 
